@@ -1,0 +1,4764 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateUrl='indie.xml' b:templateVersion='1.3.3' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<b:with var='global' value='{ 
+        isMaintenance: false,
+        pubId: "1854718205178548", 
+        hiddenLabels: {"use-summary", "use-home-summary"},
+        debugKey: "247591cb-cd63-466c-bcaa-48e5f04ef8e2", 
+      }'>
+<head>
+  
+  <b:include name='@modules/blog-shortcut'/>
+  <b:include name='@modules/redirects'/>
+  
+  <meta name="theme-color" content="#3f5173" id="browser-nav-theme-color"/>
+  
+  <b:if cond='data:view.isSingleItem or data:view.isHomepage'>
+    <title><b:eval expr='data:blog.pageName ? (data:blog.pageName + " - " + data:blog.title.escaped) : data:blog.title.escaped'/></title>
+    <meta property="og:title" expr:content='data:blog.pageName ? (data:blog.pageName + " - " + data:blog.title) : data:blog.title'/>
+    <b:if cond='data:view.isHomepage'>
+      <meta property="og:description" expr:content="data:view.description"/>
+      <meta name="description" expr:content="data:view.description"/>
+    </b:if>
+    <meta property="og:url" expr:content="data:view.url"/>
+    <meta property="og:site_name" expr:content="data:blog.title"/>
+    
+  <b:elseif cond='data:view.isSearch'/>
+    <b:if cond='data:view.search.label'>
+      <b:include name='searchLabelPage.title-and-meta'/>
+    <b:elseif cond='data:view.search.query'/>
+      <title><b:eval expr='"Search result : " + data:view.search.query.escaped'/></title>
+    <b:else/>
+      <title><data:messages.olderPosts/></title>
+    </b:if>
+
+  <b:elseif cond='data:view.isArchive'/>
+    <title><data:messages.blogArchive/> : <data:blog.pageName/></title>
+  
+  <b:else/>
+    <title>404 : Page not found - <data:blog.title/></title>
+    <meta property="og:title" expr:content='"404 : Page not found - " + data:blog.title'/>
+    <meta property="og:description" content="The page that you are looking had been moved, deleted, or never existed"/>
+    <meta name="description" content="The page that you are looking had been moved, deleted, or never existed"/>
+    
+  </b:if>
+
+  <style>
+    .btn-circle {
+      width: 46px;
+      height: 46px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+  <b:include name='@css/theme'/>
+  
+  <!-- high priority scripts -->
+  <b:include name='@modules/dark-theme'/>
+  <b:include name='@modules/screen-awake'/>
+   
+  <!--nodivless-->
+  <b:skin version='1.3.3'><![CDATA[
+<!-- Variable definitions -->
+<Group description="2nd Generator Blogger Template Comment Theme">
+   <Variable name="body.background" description="Body Background" type="background" color="#dddfe2" default="#dddfe2 none repeat scroll top left" value="#dddfe2 none repeat scroll top left"/>
+   <Variable name="body.font" description="Font" type="font" default="normal 400 14px Roboto, Arial, sans-serif" value="normal 400 14px Arial,sans-serif"/>
+   <Variable name="body.text.color" description="Text Color" type="color" default="#1d2129" value="#1d2129"/>
+   <Variable name="body.text.font" description="1" type="font" default="$(body.font)" value="normal 400 14px Roboto,Arial,sans-serif"/>
+   <Variable name="posts.background.color" description="2" type="color" default="#fff" value="#ffffff"/>
+   <Variable name="body.link.color" description="3" type="color" default="#008c5f" value="#008c5f"/>
+   <Variable name="body.link.visited.color" description="4" type="color" default="#008c5f" value="#008c5f"/>
+   <Variable name="body.link.hover.color" description="5" type="color" default="#1d2129" value="#1d2129"/>
+   <Variable name="blog.title.font" description="6" type="font" default="$(body.text.font)" value="normal 400 14px Roboto, Arial, sans-serif"/>
+   <Variable name="blog.title.color" description="7" type="color" default="#fff" value="#ffffff"/>
+   <Variable name="header.icons.color" description="8" type="color" default="#fff" value="#ffffff"/>
+   <Variable name="tabs.font" description="9" type="font" default="$(body.text.font)" value="normal 400 14px Arial,sans-serif"/>
+   <Variable name="tabs.color" description="10" type="color" default="#ccc" value="#cccccc"/>
+   <Variable name="tabs.selected.color" description="11" type="color" default="#fff" value="#ffffff"/>
+   <Variable name="tabs.overflow.background.color" description="12" type="color" default="#fff" value="#ffffff"/>
+   <Variable name="tabs.overflow.color" description="13" type="color" default="$(body.text.color)" value="#1d2129"/>
+   <Variable name="tabs.overflow.selected.color" description="14" type="color" default="$(body.text.color)" value="#1d2129"/>
+   <Variable name="posts.title.color" description="15" type="color" default="$(body.text.color)" value="#1d2129"/>
+   <Variable name="posts.title.font" description="16" type="font" default="$(body.text.font)" value="normal 400 14px Arial,sans-serif"/>
+   <Variable name="posts.text.font" description="17" type="font" default="$(body.text.font)" value="normal 400 14px Arial,sans-serif"/>
+   <Variable name="posts.text.color" description="18" type="color" default="$(body.text.color)" value="#1d2129"/>
+   <Variable name="posts.icons.color" description="19" type="color" default="$(body.text.color)" value="#6c6f74"/>
+   <Variable name="labels.background.color" description="20" type="color" default="#008c5f" value="#008c5f"/>
+</Group>
+]]></b:skin>
+  <!--/nodivless-->
+  
+  <meta name='viewport' content='width=device-width'/>
+  <meta charset='UTF-8'/>
+  <meta content='website' property='og:type'/>
+  <b:if cond='data:view.isArchive'>
+    <meta content='noindex, noarchive' name='robots'/>
+  </b:if>
+  <!--<link rel="icon" type="image/x-icon" href='http://pacolemon.blogspot.com/favicon.ico'/>-->
+  <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/-wZuNZFcvb5M/YNH95kxxb8I/AAAAAAAAPmM/NUJMTXKtf-Y_6vSKpuoH7OOEWWkQdrxNgCLcBGAsYHQ/s16/final.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://lh3.googleusercontent.com/-wZuNZFcvb5M/YNH95kxxb8I/AAAAAAAAPmM/NUJMTXKtf-Y_6vSKpuoH7OOEWWkQdrxNgCLcBGAsYHQ/s16/final.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://lh3.googleusercontent.com/-wZuNZFcvb5M/YNH95kxxb8I/AAAAAAAAPmM/NUJMTXKtf-Y_6vSKpuoH7OOEWWkQdrxNgCLcBGAsYHQ/s32/final.png" />
+  
+  
+  <b:with var="defaultImageUrl" value='"https://1.bp.blogspot.com/-AXVkCvKLmog/XQbnJI8j4cI/AAAAAAAAIhY/QaxerT9ctGkeXn1fc4qq7cQwLBHl8vSnwCPcBGAYYCw/s320/MicrosoftTeams-image%2B%25283%2529.png"'>
+    <b:if cond="data:blog.postImageUrl">
+      <meta expr:content='resizeImage(data:blog.postImageUrl, 246, "1:1")' property='og:image'/>
+    <b:elseif cond='data:defaultImageUrl != "-"'/>
+      <meta expr:content='resizeImage(data:defaultImageUrl, 246, "1:1")' property='og:image'/>
+    </b:if>
+  </b:with>
+  <style>
+/**/
+* {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.overflow-hidden{overflow:hidden}
+.flex-wrap{flex-wrap:wrap}
+.d-flex{display:flex}.d-grid{display:grid}.d-block{display:block}
+.justify-content-between{justify-content:space-between}.justify-content-end{justify-content:flex-end}
+.position-relative{position:relative}.position-absolute{position:absolute}
+.align-items-center{align-items:center}
+.m-auto{margin:auto}
+.w-100{width:100%}
+a.text-decoration-none,.text-decoration-none a{text-decoration:none}.text-uppercase{text-transform:uppercase}.text-decoration-underline{text-decoration:underline}
+.fw-bold{font-weight:bold}
+</style>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Lato&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300&amp;display=swap" rel="stylesheet"/>
+  
+  <style>
+    .font-section {
+      font-family: 'Urbanist', sans-serif;
+    }
+    .cookie-choices-info {
+      bottom:0!important;
+      top:inherit!important;
+    }
+  </style>
+  
+  <b:if cond='data:view.isPreview'>
+    <style>
+      .blogger-clickTrap{display:none}
+    </style>
+  </b:if>
+  
+  <style id='placeholder-ads-style' type='plain/text'>
+    .adsbygoogle{background:#9e9e9e52;min-height:10px;}
+    .ads-5005023556{height:180px}
+  </style>
+  <script> 
+    (() => {
+      let a = ['g','l','o','b','a','l','C','o','n','f','i','g'].join('');
+      let b = ['i','s','D','e','b','u','g'].join('');
+      let c = ['d','e','b','u','g','K','e','y'].join('');
+      window[a] = {};
+      let d = window[a];
+      d[b] = (window.localStorage.getItem(c) == '<data:global.debugKey/>');
+    })();
+  </script>
+  <script>
+    function noTrackViews() {
+      var date = new Date();
+      date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
+      var expires = "; expires=" + date.toGMTString();
+      document.cookie = "_ns=2" + expires + "; path=/";
+    }
+  </script>
+
+</head>
+<body>
+  <style data-type='dark-theme' type='text/plain'>
+    /**/
+  </style>
+  <b:if cond='data:view.url.raw contains ".com/notrack"'>
+    <script>
+      noTrackViews() ;
+      alert('Your view will no longer be tracked.');
+    </script>
+  <b:elseif cond='data:view.url.raw contains ".com/debug"'/>
+    <b:include name='markup-debug-mode-on'/>
+    <script> alert('Debug mode: on.') </script>
+  <b:elseif cond='data:view.url.raw contains ".com/prod"'/>
+    <b:include name='markup-debug-mode-off'/>
+    <script> alert('Debug mode: off.') </script>
+  </b:if>
+  
+  <b:if cond='data:view.url == data:view.url path "//secret"'>
+    Sup?
+  <b:elseif cond='data:view.url == data:view.url path "//paco"'/>
+    
+  <b:elseif cond='data:view.url == data:view.url path "//auth"'/>
+    
+  <b:else/>
+  
+    <b:if cond='data:global.isMaintenance'>
+    <p style="text-align:center;">
+      <small>Blog under maintenance. Come back later.</small>
+    </p>
+    </b:if>
+  
+    <script> window.blogger = {} </script>
+    <script> L = console.log </script>
+    <script> $ = function(selector, node=document) { return node.querySelectorAll(selector) } </script>
+  
+    <b:include name='@css/normalize'/>
+    <b:include name='@css/global'/>
+    <b:include name='@css/widgets'/>
+    
+    <b:if cond='data:view.isMultipleItems'>
+      <!--<b:if cond='data:view.isSearch'>-->
+        <!--<b:include name='@css/layout-search'/>-->
+      <!--<b:else/>-->
+        <b:include name='@css/layout-homepage'/>
+        <b:include name='@css/entry-elements'/>
+      <!--</b:if>-->
+    <b:else/>
+      <b:include name='@css/entry-elements'/>
+      <b:include name='@css/layout'/>
+      <b:include name='@css/entry'/>
+    </b:if>
+    
+    <b:include name='@view/shared/header-v3'/>
+    
+    <div class="d-flex justify-content-between" style="padding:1rem;">
+      <div>
+        <div id="feature-awake" class="d-flex align-items-center">
+          <b:attr name='style' value='display:none' cond='data:view.isMultipleItems or data:view.isError'/>
+          <label class='switch'>
+            <input type='checkbox' id='awake-toggler'/>
+            <span class="slider round btn btn-outline-primary"></span>
+          </label>
+          <label for='awake-toggler'>
+            <small style="margin-left:8px;">
+              Keep Screen Awake
+            </small>
+          </label>
+        </div>
+      </div>
+      
+      <label class='switch theme-switch dark'>
+        <input type='checkbox' id='dark-theme-toggler'/>
+        <span class="slider round btn btn-outline-primary"></span>
+        <span class="dark-theme-toggler.btn btn-outline-primary"></span>
+      </label>
+    </div>
+    <script>
+      window.screenAwake.initToggler();
+      window.darkTheme.initToggler();
+    </script>
+    
+    
+    <!--FEATURED-->
+    <b:comment>
+    <b:section id='main-featured' cond='data:view.isHomepage OR data:view.isLayoutMode'>
+      <b:widget id='FeaturedPost1' locked='false' title='Featured Post' type='FeaturedPost' visible='true'>
+        <b:includable id='main' var='this'>
+          <b:include name='@view/featured-post'/>
+        </b:includable>
+      </b:widget>
+    </b:section>
+    </b:comment>
+      
+    <div class="main-container">
+      <!--MAIN-->
+      <b:section id='main'>
+        <b:widget id='Blog1' locked='false' title='Blog Posts' type='Blog' version='2' visible='true'>
+          <b:includable id='main'>
+            <b:include name='@widget/blog'/>
+          </b:includable>
+        </b:widget>
+      </b:section>
+      
+      <!--SIDEBAR-->
+      <b:section id='sidebar' cond='data:view.isLayoutMode OR data:view.isSearch OR data:view.isHomepage'>
+        <b:widget id='PopularPosts1' locked='false' title='' type='PopularPosts' visible='true'>
+          <b:includable id='main' var='this'>
+            <b:include name='widget-title'/>
+            <b:include name='@view/popular-posts'/>
+          </b:includable>
+        </b:widget>
+        <b:widget id='Label1' locked='false' title='Labels' type='Label' visible='true'/>
+        <b:widget id='Followers1' locked='false' title='Followers' type='Followers' visible='true'/>
+        <b:widget id='AdSense1' locked='false' title='' type='AdSense' visible='true'/>
+      </b:section>
+    </div>
+    
+    <b:include name='@view/shared/footer'/>
+  
+    <b:include name='@modules/analytics'/>
+    <script>
+      if (window.globalConfig.isDebug) {
+        document.querySelectorAll('#placeholder-ads-style')[0].removeAttribute('type');
+      }
+    </script>
+  
+  </b:if>
+  
+  <b:defaultmarkups>
+  <b:defaultmarkup type='Common'>
+    
+    <!--WIDGETS-->
+    <b:includable id='@widget/blog'><b:if cond='data:view.isMultipleItems'>
+  <!--<b:if cond='data:view.isHomepage'>-->
+    <b:include name='@view/homepage'/>
+  <!--<b:else/>-->
+    <!--<b:include name='@view/search'/>-->
+  <!--</b:if>-->
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.10.5/viewer.min.css" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.10.5/viewer.min.js"></script>
+  <script>
+    ;(function() {
+      
+      let $ = document.querySelectorAll.bind(document);
+      
+      for (let container of $('table.tr-caption-container')) {
+        let a = container.querySelectorAll('td > a')[0];
+        a.href = 'javascript:void(0)';
+        new Viewer(container);
+      }
+      
+    })();
+  </script>
+  
+<b:elseif cond='data:view.isSingleItem'/>
+  <b:loop values='data:posts' var='post'>
+    <b:if cond='data:post.labels any (label => label.name == "lyric-chord-v2")'>
+      <b:include name='@view/song'/>
+    <b:elseif cond='data:post.labels any (label => label.name == "music tutorial")'/>
+      <b:include name='@view/music-tutorial'/>
+    <b:else/>
+      <b:include name='@view/post'/>
+    </b:if>
+    
+    <b:include name='@view/bottom-nav-links'/>
+    
+    <div style="height:2rem;"></div>
+    <div class="below-content-ads" style="text-align:center;margin:3rem 0;">
+      <b:include name='ads-v2'  data='{ slot: "5005023556" }'/>
+    </div>
+    
+    <div style="margin-bottom:2rem;">
+      <b:include name='@css/comment'/>
+      <b:include name='commentPicker' data='post'/>
+    </div>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.10.5/viewer.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.10.5/viewer.min.js"></script>
+    <script>
+      ;(function() {
+        
+        let $ = document.querySelectorAll.bind(document);
+        
+        for (let container of $('table.tr-caption-container')) {
+          let a = container.querySelectorAll('td > a')[0];
+          a.href = 'javascript:void(0)';
+          new Viewer(container);
+        }
+        
+      })();
+    </script>
+    
+    <script>
+      ;(function() {
+        let metaNode = document.querySelector('meta[name="viewport"]');
+        let initialValue = metaNode.getAttribute('content');
+        
+        window.addEventListener('blur', function() {
+          let commentIframe = document.querySelector('.comments.threaded iframe');
+          if (document.activeElement == commentIframe) {
+            metaNode.setAttribute('content', initialValue+',user-scalable=no');
+          } 
+        });  
+        window.addEventListener('focus', function() {
+          metaNode.setAttribute('content', initialValue);
+        }); 
+      })();
+    </script>
+    
+  </b:loop>
+    
+<b:else/>
+
+  <b:include name='@view/404'/>
+  
+</b:if></b:includable>
+    
+    <!--SHARED-->
+    <b:includable id='@view/shared/header-v3'><style>
+  /**/
+  
+  /*search hints*/
+  .search-hints {
+    text-decoration: none;
+    padding: 8px 12px;
+    display: block;
+    font-size: 1rem;
+    font-family: sans-serif;
+    /* white-space: nowrap; */
+    text-overflow: ellipsis;
+    overflow: hidden;
+    border-bottom: 1px solid var(--theme-color-hint-border);
+  }
+  .search-hints.selected {
+    background: var(--theme-color-search-hover);
+  }
+  .search-hints:hover {
+    background: var(--theme-color-search-hover);
+    text-decoration: none;
+  }
+  
+  
+  #search-result {
+    background: var(--theme-color-bg-primary-80);
+    width: 100%;
+    border: 1px solid var(--theme-color-search-border);
+    top: 6px;
+  }
+  .search-result-wrapper {
+    position: relative;
+    width: 100%;
+    grid-column: 1/3;
+  }
+
+  .nav-masthead .navi-link {
+    color: white;
+    background-color: transparent;
+    border-bottom: .25rem solid transparent;
+    padding: 3px 16px;
+  }
+  .nav-masthead .active {
+    border-bottom-color: #fff;
+  }
+  @media (max-width:499px) {
+    .navi-link {
+      padding: 0.5rem 0.7rem!important;
+    }
+  }
+  .nav {
+    grid-template-columns: auto 1fr auto;
+    gap:8px;
+    align-items: center;
+  }
+
+  @media (max-width:499px) {
+   .nav{grid-template-columns:auto 1fr auto  }
+  }
+
+  @media (max-width:330px) {
+    .nav {
+      gap:4px
+    }
+  }
+  @media screen and (max-width:679px) {
+	  .link-beranda {
+	    display: none;
+	  }
+	}
+  @media screen and (min-width:680px) {
+    .top-search {
+      max-width: 420px;
+    }
+  }
+
+  .cover-container{
+    top: 0;
+    z-index: 1;
+    height: var(--nav-height);
+    display: grid;
+    align-items: center;
+    grid-template-rows:1fr 0px;
+    background: var(--theme-color-header);
+  }
+  .cover-container.sticky {
+    position: sticky;
+  }
+  .--dark .cover-container{
+    background: var(--theme-color-header);
+  }
+
+
+  .search input {
+    border: none;
+    padding: 14px 12px;
+    outline: none;width:100%;
+    border-radius: inherit;
+    background: none;
+    color: white;
+    font-size:16px;
+  }
+  .search input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #ffffffb8;
+    opacity: 1; /* Firefox */
+  }
+  
+  .search input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #ffffffb8;
+  }
+  
+  .search input::-ms-input-placeholder { /* Microsoft Edge */
+    color: #ffffffb8;
+  }
+  .search button{
+    background: none;
+    border: 0;
+    font-size: 1.4rem;
+    padding: 0.4rem 1rem;
+  }
+  .search button:hover{
+    background: #efefef;
+  }
+  @media (min-width:625px) {
+    .search form{max-width:600px}
+  }
+  @media (max-width: 798px) {
+  .nav {grid-template-columns:auto 1fr auto}
+  }
+</style>
+
+
+<style>
+  .top-search {
+    width: 100%;
+  }
+    
+</style>
+<style>
+  .menu-icon{border-radius:4px}
+  .menu-icon-2{
+    cursor:pointer;
+    width: 48px;
+    height: 100%;
+    background: url(https://1.bp.blogspot.com/-Nhc1pM7eOXQ/X0BiafCtGMI/AAAAAAAANPg/D6deHMMuuccYyDlDq8Mfi-afZwmyPcGBgCLcBGAsYHQ/s48-c/66773032_877684889258401_3684245117129981952_n.jpg);
+    -webkit-tap-highlight-color: transparent; 
+    background-repeat:no-repeat!important;
+    background-position: center!important;
+  }
+ .menu-icon-2{
+    background-size: 32px 32px!important;
+    background: url(https://1.bp.blogspot.com/-ZtO47O9Wkgg/YY8XaBs4CsI/AAAAAAAARFM/irb3VxBnX7wxkP2h47BgytStYDl8ypCBwCLcBGAsYHQ/s42/baseline_arrow_back_black_24dp.png);
+    filter: invert(1);
+  }
+  .nav .menu-icon-2 {
+    display: none;
+  }
+  .search-result-wrapper-2,.screen-check-isMobileSearch {
+    display:none;
+  }
+  
+  #search-result:empty{
+    display:none!important;
+  }
+  .masthead {
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+  @media (min-width:500px) {
+    .search form{
+      background: var(--theme-color-header-80);
+      margin: 0;
+      border-radius: 6px;
+    }
+    .masthead {
+      grid-template-columns: auto 1fr;
+    }
+  }
+  .cover-container{
+    padding: 0 clamp(1.375rem, 1.2rem + 0.89vw, 2rem);
+  }
+  @media (max-width:600px) {
+    .brand{display:none}
+  }
+  @media (max-width:499px) {
+    .MS .cover-container{
+        padding: 0;
+      }
+    .search-hints {
+      border-bottom: 1px solid #545d6a;
+      color: #ebebeb;
+      padding: 14px 12px;
+    }
+    .search-hints:hover {
+      background: #66707c;
+    }
+    .nav {
+      transition: 250ms;
+      background: var(--theme-color-header-80);
+      border-radius: 6px;
+      margin: 0 0 0 8px;
+      height: 48px;
+    }
+    .MS .brand-link {
+      display: none;
+    }
+    .MS .masthead {
+      grid-template-columns: 1fr;
+    }
+    .MS .nav{
+      height: var(--nav-height);
+      border-radius: 0;
+      margin: 0;
+    }
+    .search form{
+      border: 0;
+      background: none;
+      margin: 0;
+    }
+    .screen-check-isMobileSearch {
+      display:block;
+    }
+    .MS .cover-container {
+      position: fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height: 100%;
+      display:grid;
+      grid-template-rows:64px 1fr;
+    }
+    .search-result-wrapper{
+      display: none;
+    }
+    .search-result-wrapper-2{
+      display: grid;
+      overflow: hidden;
+      height: 100%;
+    }
+    .MS #search-result-2{
+      overflow: auto;
+      height: 100%;
+    }
+    .nav .right-menu {
+      display: none!important;
+    }
+    .nav .menu-icon-2 {
+      display: block;
+    }
+    body:not(.MS) .nav .menu-icon-2 {
+      display: none;
+    }
+    .MS .nav .menu-icon {
+      display: none;
+    }
+    body.MS {
+      overflow: hidden;
+    }
+  }
+  
+  .align-items-center{align-items:center}
+</style>
+  
+<div class="cover-container">
+  <b:class cond='!(data:view.isPost OR data:view.isPage)' name='sticky'/>
+
+  <header class="masthead">
+  
+    <div class="d-flex align-items-center">
+      
+      <b:section id='blog-heading'>
+      
+      
+      <b:widget id='Header1' locked='true' title='Blog Logo and Title' type='Header' visible='true'>
+          <b:widget-settings>
+            <b:widget-setting name='displayUrl'>https://1.bp.blogspot.com/-Nhc1pM7eOXQ/X0BiafCtGMI/AAAAAAAANPg/D6deHMMuuccYyDlDq8Mfi-afZwmyPcGBgCLcBGAsYHQ/s120-c/66773032_877684889258401_3684245117129981952_n.jpg</b:widget-setting>
+            <b:widget-setting name='displayHeight'>120</b:widget-setting>
+            <b:widget-setting name='sectionWidth'>150</b:widget-setting>
+            <b:widget-setting name='useImage'>true</b:widget-setting>
+            <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
+            <b:widget-setting name='imagePlacement'>BEHIND</b:widget-setting>
+            <b:widget-setting name='displayWidth'>120</b:widget-setting>
+          </b:widget-settings>
+          
+          <b:includable id='main' var='this'>
+            
+            <style>
+              .menu-icon {
+                background: url('<data:sourceUrl/>');
+                background-size: cover;
+              }
+            </style>
+            
+            <a class="d-flex h-100 align-items-center brand-link text-decoration-none" expr:href='data:blog.homepageUrl + (data:blog.isMobileRequest ? "?m=1" : "")'>
+              <div class="menu-icon" style="height:34px;width:34px;margin-right:6px;"></div>
+              <span class="brand" style="font-size:18px;margin-right:1rem;margin-left:4px;color:white;">
+                <data:title/>
+              </span>
+            </a>
+            
+          </b:includable>
+
+        </b:widget>
+        </b:section>
+    
+    </div>
+    
+    
+    <div class="d-grid nav">
+      <div style="height:100%;">
+        <div class="menu-icon-2"  onclick="document.body.classList.remove('MS');document.activeElement.blur()"></div>
+      </div>
+      <div class="top-search search">
+        <form class="input-group form-searc" action="/search" method="GET">
+          <input id="input-search" class="_input" name="q" autocomplete="off" placeholder="Search"/>
+          <div class="search-result-wrapper">
+            <div id="search-result" class="position-absolute w-100"></div>
+          </div>
+        </form>
+      </div>
+      <b:comment>
+      <div class="right-menu" style="display:flex;align-items:center;gap:12px;">
+        <nav class="nav nav-masthead justify-content-center text-decoration-none">
+          <a class="navi-link link-beranda" href="https://codetmp.web.app/">
+            Codetmp
+          </a>
+          <a class="navi-link" href="https://tmpmachine7.itch.io/pixelcaso">
+            Pixelcaso
+          </a>
+        </nav>
+      </div>
+      </b:comment>
+    </div>
+  </header>
+  <div class="search-result-wrapper-2">
+    <div id="search-result-2">
+      <a href="https://instagram.com/pacolemon" style="
+    color: white;
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    padding: 16px;">
+      <span class="d-block" style="margin-bottom:1rem;">
+        Find us on Instagram
+      </span>
+      <img height="32" src="https://1.bp.blogspot.com/-yPlcjm9f4n0/X0BzLfbZ-WI/AAAAAAAANPs/lQBom5RN3jwGsePuN9RY4QLk6Gts81tdgCLcBGAsYHQ/s52/001-instagram.png" width="32"></img>
+      </a>
+    </div>
+  </div>
+</div>
+<div style="height:1px;overflow:hidden;position:absolute;top:0;left:0;width:100%;">
+  <div class="screen-check-isMobileSearch" style="height:10px;"></div>
+</div>
+  
+  
+<template id='tmp-hints'>
+  <div>
+    <a class="search-hints title" href='#'></a>
+  </div>
+</template>
+
+<b:include name='@js/blogsearch'/>
+<b:include name='@js/blogfeeds'/>
+
+<script>
+  let feeder = BlogFeeds({
+    blog: 'pacolemon',
+    blogId: '180767010178431888',
+  });
+  feeder.init();
+  
+  let search = window.BlogSearch({
+    inputEl: document.querySelector('#input-search'),
+    resultEl: document.querySelector('#search-result-2'),
+    resultTemplate: document.querySelector('#tmp-hints'),
+    haystack: feeder.posts,
+  });
+  search.init();
+</script></b:includable>
+    <b:includable id='@view/shared/footer'><!--DEV ONLY-->
+<script>
+/*<![CDATA[*/
+  function generateScopedStyle(elementScopeName) {
+    let componentName = elementScopeName;
+    let style = document.querySelector(`[data-style="${componentName}"]`);
+    let selectors = style.textContent.match(/.*?{(.|\n)*?}/g);
+    for (let i=0; i<selectors.length; i++) {
+      let selName = selectors[i].match(/.*?{/)[0].replace('{','');
+      let props = selectors[i].slice(selName.length);
+      let component = `[data-css="${componentName}"] `;
+      selectors[i] = component+selName.split(',').join(','+component)+props;     
+    }
+    style.textContent = selectors.join('\n');
+  }
+/*]]>*/
+</script>
+<!--END OF DEV ONLY-->
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+
+
+
+<style data-style="footer">
+  .links a:active {
+    outline:1px solid #00bcd4
+  }
+  .links a:hover {
+    color:#fdec55;
+  }
+  .links a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: inline-block;
+    padding: 0.3rem 0;
+  }
+  ul.links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+</style>
+<script> window.generateScopedStyle('footer') </script>
+
+<div data-css="footer" style="background:#100f0f;color:white;">
+  <div style="padding:1rem;">
+    <div style="display:none;">
+      <div style="font-weight:bold;margin-bottom:.5rem;margin-top:1.5rem;">Links</div>
+      <ul class="links">
+        <li>
+          <a href="https://pacolemon.blogspot.com/p/terms-of-service.html">Terms of Service</a>
+        </li>
+        <li>
+          <a href="https://pacolemon.blogspot.com/p/privacy-policy.html">Privacy Policy</a>
+        </li>
+      </ul>
+    </div>
+    <b:comment>
+      
+    <div style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:12px;">
+      <a class='btn btn-primary btn-lg rounded-circle border-0 btn-circle text-decoration-none' style='background-color: #ac2bac;' role='button' href='https://www.instagram.com/pacolemon/'><i class='fab fa-instagram'></i></a>
+      <a class='btn btn-primary btn-lg rounded-circle border-0 btn-circle text-decoration-none' style='background-color: #7289da;' role='button' href='https://discord.gg/ayeQwA7WDJ'><i class='fab fa-discord'></i></a>
+      <a class='btn btn-primary btn-lg rounded-circle border-0 btn-circle text-decoration-none' style='background-color: #f31b1b;' role='button' href='https://tmpmachine7.itch.io/'><i class='fab fa-itch-io'></i></a>
+    </div>
+    </b:comment>
+  </div>
+
+  <style>
+  .pc-footer ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .pc-footer ul li a {
+      margin: 8px 0;
+      display: inline-block;
+      font-size: 14px;
+  }
+  
+  .pc-footer {
+      margin-bottom: 2rem;
+  }
+  </style>
+
+  <div style="padding:1rem;background:#131313;">
+    
+    <!--FOOTER GRID-->
+    <div>
+      
+      <b:section id='footer' class='footer-grid pc-footer'>
+    
+        <b:widget id='LinkList1' locked='false' title='Blogs' type='LinkList' visible='true'>
+          <b:widget-settings>
+            <b:widget-setting name='sorting'>NONE</b:widget-setting>
+            <b:widget-setting name='text-1'>XML Expr</b:widget-setting>
+            <b:widget-setting name='link-1'>https://</b:widget-setting>
+            <b:widget-setting name='text-0'>TMP Cafe</b:widget-setting>
+            <b:widget-setting name='link-2'>https://</b:widget-setting>
+            <b:widget-setting name='link-0'>https://</b:widget-setting>
+            <b:widget-setting name='text-2'>Cool Web Components</b:widget-setting>
+          </b:widget-settings>
+          <b:includable id='main'>
+              <b:include name='widget-title'/>
+            <b:include name='content'/>
+          </b:includable>
+          <b:includable id='content'>
+           <div class='widget-content'>
+             <ul>
+               <b:loop values='data:links' var='link'>
+                 <li><a expr:href='data:link.target'><data:link.name/></a></li>
+               </b:loop>
+             </ul>
+           </div>
+          </b:includable>
+        </b:widget>
+        
+        <b:widget id='LinkList2' locked='false' title='Blogs' type='LinkList' visible='true'>
+          <b:widget-settings>
+            <b:widget-setting name='sorting'>NONE</b:widget-setting>
+            <b:widget-setting name='text-1'>About</b:widget-setting>
+            <b:widget-setting name='link-1'>https://</b:widget-setting>
+            <b:widget-setting name='text-0'>Contact Us</b:widget-setting>
+            <b:widget-setting name='link-0'>https://</b:widget-setting>
+          </b:widget-settings>
+          <b:includable id='main'>
+              <b:include name='widget-title'/>
+            <b:include name='content'/>
+          </b:includable>
+          <b:includable id='content'>
+           <div class='widget-content'>
+             <ul>
+               <b:loop values='data:links' var='link'>
+                 <li><a expr:href='data:link.target'><data:link.name/></a></li>
+               </b:loop>
+             </ul>
+           </div>
+          </b:includable>
+        </b:widget>
+      
+      </b:section>
+    
+    </div>
+    
+    <style>
+      .footer-grid {display: flex;flex-wrap: wrap;gap: 20px;}
+      .footer-grid > div {width:200px;max-width:100%}
+    </style>
+    
+    <style>
+      .b a {/* display: inline-flex; */gap:;padding: 8px;}
+    </style>
+    
+    <!--
+    <div style="display:flex;gap:4px;align-items:center;">
+      <img src="https://lh3.googleusercontent.com/-wZuNZFcvb5M/YNH95kxxb8I/AAAAAAAAPmM/NUJMTXKtf-Y_6vSKpuoH7OOEWWkQdrxNgCLcBGAsYHQ/s16/final.png"></img>
+      <small style="opacity:0.75;">Hobbies blog by Kenpaco and Lemonkid</small>
+    </div>
+    -->
+  </div>
+</div></b:includable>
+    
+    <!--PAGE TEMPLATES-->
+    <b:includable id='@view/homepage'><!--SEPARATOR-->
+<div style="margin-top:3rem;"></div>
+
+<b:include name='@modules/yt-iframe'/>
+<b:include name='@modules/codeblock'/>
+
+<style>
+
+.post-container {max-width: 723px;
+    margin: 0 auto;
+    line-height: 1.7rem;
+    font-size: 1.15em;}
+/*.post-items .title {*/
+  /*line-height: 3.6rem;*/
+    /*font-size: 1.5rem;*/
+    /*text-decoration: none;*/
+/*}*/
+.post-items {
+    text-decoration: none;
+    color: inherit;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid #44464b;
+    padding-bottom: 3rem;
+  }
+
+.default-thumbnail {
+  padding-top: 56.25%;
+  background: #efefef;
+  border-radius: 10px;
+  max-width: 100%;
+  background-size: cover!important;
+  background-position: center center!important;
+}
+a.post-items:nth-child(1) {
+  grid-column: 1/3;
+}
+
+a.post-items:nth-child(2) {
+  grid-column: 3/5;
+}
+.post-items .card-body {
+  /*padding: 16px;*/
+}
+.post-items .title {
+  /*line-height: 1.8rem;*/
+  /*font-size: 1rem;*/
+  line-height: 3.2rem;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+.post-items .title h1 {
+  margin-bottom: 0;
+}
+.post-items h3 {
+  opacity: 0.8;
+  margin-bottom: 0;
+}
+.post-items time {
+  display: inline-block;
+  margin-top: 8px;
+  opacity: 0.5;
+  font-size: 0.9rem;
+}
+.post-items .title:hover {
+  color: #fe0060!important;
+}
+.older-page-link,.newer-page-link {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  background: lightgray;
+  font-size: 14px;
+  padding: 12px;
+}
+</style>
+
+<div class="post-container">
+  
+  <div>
+  
+    <b:if cond='data:posts.isEmpty'>
+      <div class="ta-center">
+        No posts.
+      </div>
+    </b:if>
+  
+    <b:loop values='data:posts' var='post'>
+      <div class="post-items">
+        
+        <b:comment>
+        <a expr:href='data:post.url'>
+          <div class="post-thumbnail">
+            <b:with var='thumbnail' value = 'data:post.featuredImage.isYoutube OR data:post.featuredImage ? "background:url(" + data:post.featuredImage + ")" : ""'>
+              <div class="default-thumbnail post-image" expr:style='data:thumbnail'></div>
+            </b:with>
+          </div>
+        </a>
+        </b:comment>
+        
+        <a class="title" expr:href='data:post.url'>
+          <h1>
+            <data:post.title/>
+          </h1>
+        </a>
+        
+        <div>
+          <time>
+            <!--<b:eval expr='data:post.date format "MMM d"'/>-->
+            <b:eval expr='data:post.date format "EEE, MMMM d, YYY"'/>
+          </time>
+        </div>
+        
+        <p>
+          <!--<b:eval expr='data:post.body snippet { links: false }'/>-->
+          <b:eval expr='data:post.body'/>
+        </p>
+        
+      </div>
+    </b:loop>  
+    
+  </div>
+  
+  <script>
+  /*<![CDATA[*/
+    
+    // run directly after grid posts render!
+    ;(function() {
+      
+      let $ = function(qs) { return document.querySelector(qs) };
+      let featuredPost = $('#featured-post');
+      if (featuredPost) {
+        let postId = featuredPost.dataset.id;
+        let duplicatePost = $('#post-'+postId);
+        if (duplicatePost) {
+          duplicatePost.style.display = 'none';
+        }
+      }
+      
+    })();
+    
+  /*]]>*/
+  </script>
+  
+  <div style="margin-top:2rem;"></div>
+  <b:include name='@view/bottom-nav-links'/>
+</div>
+
+
+<!---->
+<!---->
+<!---->
+<b:if cond='false'>
+
+
+
+<style>
+  .post-wrapper {
+    max-width: 1366px;
+    margin: auto;
+    padding: 1rem;
+  }
+  .post-item {
+    border-bottom: 2px solid #e8e8e8;
+    padding: 1rem 0;
+    margin-bottom: 1.5rem;
+    display: grid;
+    margin-bottom: 5rem;
+    /*grid-template-columns: auto 1fr;*/
+    gap: 2rem;
+  }
+  .post-item .title {
+    font-size: 2rem;
+    margin: 0 0 1rem 0;
+  }
+  .date {
+    text-transform: uppercase;
+    font-family: 'Urbanist';
+  }
+</style>
+<style>
+  .post-thumbnail > div {
+    max-width: 370px;
+    height: 200px;
+    overflow: hidden;
+    display: grid;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 0.7rem;
+  }
+  .post-thumbnail .post-image {
+    background-size: cover!important;
+  }
+</style>
+
+<style>
+  .caption-content {
+        max-width: 370px;
+    margin: auto;
+    line-height: 1.7rem;
+    text-align: center;
+}
+
+.btn-browse-components {padding:14px 40px;border:1px solid;text-decoration:none;font-weight:bold;font-size:0.8rem;color:black;max-width: 168px;display: inline-block;text-align: center;/* text-transform: uppercase; */line-height: 1.3rem;transition: 250ms;cursor:pointer}
+
+.btn-browse-components:hover{background: black;color: white;}
+</style>
+
+<div style="height:1rem;"></div>
+<div class="post-wrapper">
+  
+  <b:include name='css.homepage-cards'/>
+  
+  <style>
+  .latest {
+    max-width: 693px;
+    display: grid;
+    gap:40px;
+    margin: auto;
+    justify-content: center;
+  }
+  .post-items:hover {
+    background: #f9f9f9;
+  }
+  
+  .post-items .title {
+      font-size: 1.1rem;
+  }
+  
+</style>
+<style data-type="dark-theme">
+  body.dark {
+    background: #262626;
+    color: white;
+  }
+  
+  body.dark .post-items:hover {
+    background: #3e3e3e;
+  }
+  
+  body.dark .btn-browse-components {
+    color: inherit;
+  }
+  
+  body.dark a.links.active {
+    color: inherit;
+    border-bottom: 3px solid;
+  }
+</style>
+  
+  <button onclick="window.darkTheme.toggle()">Toggle Dark Theme</button>
+  <div>
+    <small>Info: Dark theme only applicable to certain page for now.</small>
+  </div>
+  
+  <div>
+    <h1>Latest Posts</h1>
+    <div class="latest">
+      <b:loop values='data:posts limit 7' var='post'>
+        <a class="post-items" expr:href='data:post.url'>
+          <div class="post-thumbnail">
+            <div>
+              <b:if cond="data:post.featuredImage.isYoutube">
+                <img class="thumbnail Youtube" expr:src='data:post.thumbnailUrl'/>
+              <b:elseif cond='data:post.featuredImage != ""'/>
+                <div class="post-image" expr:style='"background:url(" + data:post.featuredImage + ")"'></div>
+              </b:if>
+            </div>
+          </div>
+          <span class="title">
+            <data:post.title/>
+          </span>
+          <p style="display:none;">
+            <b:eval expr='data:post.body snippet { links: false }'/>
+          </p>
+          <div>
+            <time>
+              <b:eval expr='data:post.date format "MMM d"'/>
+            </time>
+          </div>
+        </a>
+      </b:loop>  
+    </div>
+  </div>
+  
+  <div id="recent-posts" style="text-align:center;"></div>
+  <div style="text-align:center;">
+    <button id="btn-load-more-posts" onclick="window.homepagePostLoader.loadMore()" style="padding:2rem;">Load more posts</button>
+  </div>
+  
+  <hr></hr>
+  
+  
+  <div style="text-align:center;">
+    <div>
+      <p style="text-transform:uppercase;">Ready to use</p>
+      <h2>Blogger RTE Components</h2>
+      <p>Google Blogger rich text editor elements with minimal to zero code implementation</p>
+      <a class="btn-browse-components" href="/search/label/Blogger-RTE-Components" style="text-align:center;">Browse Components</a>
+    </div>
+    <hr style="margin:2rem 0;"></hr>
+    <div>
+      <p style="text-transform:uppercase;">Learning Material</p>
+      <h2>Blogger Fundamentals</h2>
+      <p>Google Blogger blog template data fundamentals for building custom template</p>
+      <a class="btn-browse-components" href="/search/label/blogger-fundamentals" style="text-align:center;">Browse Articles</a>
+    </div>
+    <hr style="margin:2rem 0;"></hr>
+    <div>
+      <p style="text-transform:uppercase;">Resources</p>
+      <h2>Blogger Templates</h2>
+      <p>Google Blogger blog template for development and public usage</p>
+      <a class="btn-browse-components" href="/search/label/blogger-templates" style="text-align:center;">Browse Templates</a>
+    </div>
+    <hr style="margin:2rem 0;"></hr>
+    
+    <div>
+      <p style="text-transform:uppercase;">Resources</p>
+      <h2>Blogger Dev Snippets</h2>
+      <p>Code snippets for Blogger template development.</p>
+      <a class="btn-browse-components" href="/search/label/blogger-snippet" style="text-align:center;">Browse Snippets</a>
+    </div>
+    <hr style="margin:2rem 0;"></hr>
+          
+    
+    <b:if cond='false'>
+    <h1>Latest in Blogger</h1>
+    <div id="target-list">
+    <b:loop values='data:posts where (post => post.labels any (label => label.name in {"Blogger"}))' var='post'>
+      <div class="my-posts">
+        <a expr:href='data:post.url' style="padding:0.3rem;margin:2px;display:inline-block;">
+          <data:post.title/>
+        </a>
+      </div>
+    </b:loop>  
+    </div>
+    <div style="text-align: center;padding: 1rem;">
+      <button onclick='window.nextPage(this)' id='loader-btn' class='btn-browse-components'>Load more posts</button>
+    </div>
+    </b:if>
+    
+    <template data-name='tmp-list'>
+      <div class="my-posts">
+          <a href='#' class='title' style="padding:0.3rem;margin:2px;display:inline-block;"></a>
+      </div>
+    </template>
+    
+    
+    <b:include name='js/related-posts.js'/>
+    <script>
+      // window.songLoader('Blogger');
+    </script>
+          
+  </div>
+  
+  <div style="text-align:center;margin-top:2rem;">
+    <b:include name='ads-v2'  data='{ slot: "5005023556" }'/>
+  </div>
+  
+  <b:if cond='false'>  
+  
+  <div class="wik">
+    <div>
+    <div class="ds">
+      <div class="dk">Blog Components</div>
+      <div class="right">
+        <div class="p2"> <span class="material-icons no-select">extension</span>
+      </div>
+      </div>
+      <div class="con">
+        <b:loop values='data:posts where (post => post.labels count (label => label.name in {"Blogger", "Components"}) == 2)' var='post'>
+            <a expr:href='data:post.url'><data:post.title/></a>
+        </b:loop>
+      </div>
+    </div>
+    </div>
+    
+    <div>
+    <div class="ds ds2">
+      <div class="dk">Blogger Developers</div>
+      <div class="right">
+        <div class="p2"> <span class="material-icons no-select">integration_instructions</span>
+      </div>
+      </div>
+      <div class="con">
+        <b:loop values='data:posts filter (post => post.labels count (label => label.name in {"Blogger Developers"}) == 1) limit 5' var='posts'>
+        <b:loop values='data:posts' var='post'>
+            <a expr:href='data:post.url'><data:post.title/></a>
+        </b:loop>
+        </b:loop>
+      </div>
+    </div>
+    </div>
+    
+    <div>
+    <div class="ds d3">
+      <div class="dk">Web Game Development</div>
+      <div class="right">
+        <div class="p2"> <span class="material-icons no-select">sports_esports</span>
+      </div>
+      </div>
+      <div class="con">
+        <b:loop values='data:posts filter (post => post.labels count (label => label.name in {"Web Game Development"}) == 1) limit 5' var='posts'>
+        <b:loop values='data:posts' var='post'>
+            <a expr:href='data:post.url'><data:post.title/></a>
+        </b:loop>
+        </b:loop>
+      </div>
+    </div>
+    </div>
+  </div>
+  
+  <div>
+    <img src="https://1.bp.blogspot.com/-8Ow3kNh3wZQ/YWD58maWolI/AAAAAAAAQbE/TrUe3ERudTwsDKC_6j1ZoOdtGiEwt6C2wCLcBGAsYHQ/w1200/es3KbU.png" style="max-width:100%;"></img>
+  </div>
+  
+  <div>
+    <h1 class="font-section" style="font-size:2.2rem;">Explore Topics</h1>
+  </div>
+  
+  <b:loop values='data:posts filter (post => post.labels none (label => label.name in {"BukuPujian","BT02","page-info"})) limit 7' var='posts'>
+  <b:loop values='data:posts' var='post'>
+    
+    <div class="post-item">
+       <div style="display: inline-block;justify-content: center;text-align: center;">
+        <div style="    text-transform: uppercase;">
+          <b:eval expr='data:post.date format "MMM" '/>
+        </div>
+        <div style="    font-size: 2.7rem;">
+          <b:eval expr='data:post.date format "d" '/> 
+        </div>
+      </div>
+      <div>
+        <b:if cond='data:post.featuredImage.isYoutube || data:post.featuredImage != ""'>
+          <div class="post-thumbnail">
+            <div>
+              <b:if cond="data:post.featuredImage.isYoutube">
+                <img class="thumbnail Youtube" expr:src='data:post.thumbnailUrl'/>
+              <b:elseif cond='data:post.featuredImage != ""'/>
+                <div class="post-image" expr:style='"background:url(" + data:post.featuredImage + ")"'></div>
+                <!--<img class="thumbnail" expr:src='data:post.featuredImage'/>-->
+              <b:else/>
+                <!--<img class="thumbnail" src="https://1.bp.blogspot.com/-Nhc1pM7eOXQ/X0BiafCtGMI/AAAAAAAANPg/D6deHMMuuccYyDlDq8Mfi-afZwmyPcGBgCLcBGAsYHQ/s100/66773032_877684889258401_3684245117129981952_n.jpg"/>-->
+              </b:if>
+            </div>
+          </div>
+        </b:if>
+        
+        <div class="date" style="display:none;">
+          <span style="font-weight:bold;">
+            <b:loop values="data:post.labels" var="label">
+              <data:label.name/>
+            </b:loop>
+          </span>
+        </div>
+        <a expr:href="data:post.url" style="display:block;text-decoration:none;color:inherit;">
+          <div class="title">
+            <data:post.title/>
+          </div>
+          <div class="summary">
+            <data:post.body/>
+          </div>
+        </a>
+      </div>
+    </div>
+  </b:loop>
+  </b:loop>
+  
+  
+  <div style="padding:1rem 0;">
+    <b:if cond='data:newerPageUrl == ""'>
+    <b:else/>
+      <a class='newer-page-link' expr:href='data:newerPageUrl'>&lt; Newer Posts</a>
+    </b:if>
+    <b:if cond='data:olderPageUrl'>
+      <a class="older-page-link" expr:href='data:olderPageUrl'>Older Posts &gt;</a>
+    </b:if>
+  </div>
+  
+  </b:if>
+  
+</div>
+<div class="post-wrapper">
+  <div style="text-align:center;margin:1rem 0;">
+    <b:include name='markup-ads-unit' data='{ name: "rspv-horizontal" }'/>
+  </div>
+</div>
+
+<div style="min-height:1.5em;"></div>
+
+
+<script>
+  window.darkTheme = (function() {
+    let $ = function(selector, node=document) { return node.querySelectorAll(selector) }
+    let SELF = {};
+    let _ = {
+      isDarkTheme: false,
+    };
+    SELF.toggle = function() {
+      _.isDarkTheme = !_.isDarkTheme;
+      if (_.isDarkTheme) {
+        document.body.classList.toggle('dark',true);
+        $('style[data-type="dark-theme"]')[0].setAttribute('type', '');
+      } else {
+        document.body.classList.toggle('dark',false);
+        $('style[data-type="dark-theme"]')[0].setAttribute('type', 'text/plain');
+      }
+      window.localStorage.setItem('opt-dark-theme', _.isDarkTheme);
+    }
+    
+    if (window.localStorage.getItem('opt-dark-theme') == 'true') {
+      SELF.toggle();
+    }
+    
+    return SELF;
+  })();
+  
+</script>
+
+<template name='posts-feeds'>
+  <div>
+    <a href='#'>
+      <h1 class="title"></h1>
+    </a>
+  </div>
+</template>
+
+<b:include name='js' data='{ path: "lib/homepage-post-loader.js" }'/>
+<script>
+(function() {
+    let $ = function(selector, node=document) { return node.querySelectorAll(selector) };
+    
+    let options = {
+      blogId: '180767010178431888',
+      itemsPerPage: 7,
+      excludedLabels: [],
+      start: 6,
+      isFirstLoad: false,
+    };
+    
+    function displayCallback(entries) {
+      let fragment = document.createDocumentFragment();
+      for (let entry of entries) {
+        generateNode(entry, fragment)
+      }
+      $('#recent-posts')[0].append(fragment);
+    }
+    
+    function generateNode(entry, fragment) {
+      let node = $('template[name="posts-feeds"]')[0].content.cloneNode(true);
+      let title = entry.title.$t;
+      let postId = entry.id.$t.split('post-')[1];
+      $('.title', node)[0].textContent = title;
+      $('a', node)[0].href = getFeedsHref(entry.link);
+      
+      // if (entry.category) {
+        
+      //   for (let label of entry.category) {
+      //     $('.note', node)[0].textContent += label.term+', ';
+      //   }
+      // }
+      fragment.append(node);
+    }
+    
+    function getFeedsHref(links) {
+      for (let link of links) {
+        if (link.rel == 'alternate')
+          return link.href;
+      }
+    }
+    
+    function loadingCallback() {
+      let btn = $('#btn-load-more-posts')[0]
+      btn.disabled = true;
+      btn.dataset.textContent = btn.textContent;
+      btn.textContent = 'Loading more posts ...';
+    }
+    
+    function loadedCallback(isNoMorePosts) {
+      let btn = $('#btn-load-more-posts')[0]
+      btn.disabled = isNoMorePosts ? true : false;
+      btn.textContent = isNoMorePosts ? 'No more posts to show!' : btn.dataset.textContent;
+    }
+    
+    window.homepagePostLoader = HomepagePostLoader(options, loadingCallback, loadedCallback, displayCallback);
+  })();
+</script>
+
+</b:if></b:includable>
+    <b:includable id='@view/search'><!--SEPARATOR-->
+<div style="margin-top:3rem;"></div>
+
+
+<style>
+  /* STRUCTURE SPACING */
+  .post-labels{margin:1rem 0}
+
+  .grid-posts{
+    display: grid;
+    grid-gap: 32px;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @media (max-width:800px) {
+    .grid-posts{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width:599px) {
+    .grid-posts{
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .default-thumbnail {
+      padding-top: 56.25%;
+      background: #efefef;
+      border-radius: 4px;
+      max-width: 100%;
+      background-size: cover!important;
+      background-position: center center!important;
+  }
+  a.post-items:nth-child(1) {
+    grid-column: 1/3;
+  }
+  
+  a.post-items:nth-child(2) {
+    grid-column: 3/5;
+  }
+  .post-items {
+    text-decoration: none;
+    color: inherit;
+  }
+  .post-items__inner {
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid transparent;
+  }
+  .post-items__inner:hover {
+    border: 1px solid #dbdbdb;
+  }
+  .post-items .title {
+    line-height: 1.8rem;
+    font-size: 1rem;
+    text-decoration: none;
+  }
+  .post-items h3 {
+    opacity: 0.9;
+    font-weight: normal;
+    font-size: 1.25rem;
+  }
+  .post-items__summary {
+    line-height: 1.5;
+    opacity: 0.8;
+    font-size: 0.95rem;
+  }
+  .post-items time {
+    display: inline-block;
+    margin-top: 8px;
+    opacity: 0.5;
+    font-size: 0.9rem;
+  }
+  .post-items .title:hover {
+    text-decoration: underline;
+    /*color: #fe0060!important;*/
+  }
+  
+  /*paginations*/
+  .older-page-link,.newer-page-link {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    background: lightgray;
+    font-size: 14px;
+    padding: 12px;
+  }
+  
+  /* POST LABELS CHIP */
+  .post-labels {
+    gap: 8px;
+  }
+  .post-labels a {
+    display: inline-block;
+    border: 1px solid #d7d7d7;
+    border-radius: 12px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.9rem;
+    transition: background 150ms;
+  }
+  .post-labels a:hover {
+    background: var(--theme-color-bg-primary-80);
+  }
+</style>
+
+<div class="post-container">
+  
+  <div class="grid-posts">
+    <b:loop values='data:posts' var='post'>
+      <div class="post-items overflow-hidden" expr:id='"post-" + data:post.id'>
+        <div class="post-items__inner">
+          <a expr:href='data:post.url'>
+            <div class="post-thumbnail">
+              <b:with var='thumbnail' value = 'data:post.featuredImage.isYoutube OR data:post.featuredImage ? "background:url(" + data:post.featuredImage + ")" : ""'>
+                <b:attr name='style' value='display:none;' cond='!data:thumbnail'/>
+                <div class="default-thumbnail post-image" expr:style='data:thumbnail'></div>
+              </b:with>
+            </div>
+          </a>
+          <div class="card-body" style="margin-top:16px;">
+            <a class="title" expr:href='data:post.url'>
+              <h3>
+                <data:post.title/>
+              </h3>
+            </a>
+            <b:if cond='data:post.labels any (l => l.name == "use-home-summary")'>
+            <p class="post-items__summary">
+              <data:post.snippets.long/>
+            </p>
+            </b:if>
+            <div class="post-labels d-flex flex-wrap">
+              <b:loop values='data:post.labels where (l => l.name not in data:global.hiddenLabels)' var='label'>
+                <a expr:href='data:blog.homepageUrl path "search" appendParams {q: ("label:\"" + data:label.name + "\"") }'>
+                  <data:label.name/>
+                </a>
+              </b:loop>
+            </div>
+            <div>
+              <time>
+                <b:eval expr='data:post.date format "MMMM d, YYY"'/>
+              </time>
+            </div>
+            <p style="display:none;">
+              <b:eval expr='data:post.body snippet { links: false }'/>
+            </p>
+          </div>
+        </div>
+      </div>
+    </b:loop>
+  </div>
+  
+  <script>
+  /*<![CDATA[*/
+    
+    // run directly after grid posts render!
+    ;(function() {
+      
+      let $ = function(qs) { return document.querySelector(qs) };
+      let featuredPost = $('#featured-post');
+      if (featuredPost) {
+        let postId = featuredPost.dataset.id;
+        let duplicatePost = $('#post-'+postId);
+        if (duplicatePost) {
+          duplicatePost.style.display = 'none';
+        }
+      }
+      
+    })();
+    
+  /*]]>*/
+  </script>
+  
+  <div style="margin-top:2rem;"></div>
+  <b:include name='@view/bottom-nav-links'/>
+</div></b:includable>
+    <b:includable id='@view/post'><meta property='og:description' expr:content='data:post.snippets.short'/>
+<meta name='description' expr:content='data:post.snippets.short'/>
+<meta expr:content='data:post.author.name' name='author'/>
+<b:include name='css' data='{ path: "index.css" }'/>
+<b:include name='css' data='{ path: "etx.css" }'/>
+<style>
+	@media (min-width:720px) {
+    .above-content-ads {display:none}    
+  }
+	
+	p {
+	  line-height: 26px;
+	  margin-bottom: 26px;
+	  margin-top: 26px;
+	}
+</style>
+
+<style>
+  table[data-type="pre"] {
+    border: none!important;
+  }
+  table[data-type="pre"] pre {
+    margin:0!important;
+  }
+</style>
+
+<b:if cond='data:post.labels any (l => l.name == "use-summary")'>
+  <style>
+    .post-body > p:first-child {
+        background: #eaf3fb;
+        padding: 1rem;
+        display: none;
+    }
+    .post-summary {
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+    .post-body > p:first-child:before {content: 'summary';display: block;font-size: 0.8rem;}
+  </style>
+</b:if>
+<style>
+  .below-content-ads {display: none}
+  @media (max-width:719px) {
+    .container {gap:0}
+    .below-content-ads {display: block}
+  }
+</style>
+
+
+<article>
+  
+  <div style="min-height:30px;">
+    <div class="item-control blog-admin">
+      <a expr:href='"https://www.blogger.com/blog/post/edit/" + data:blog.blogId + "/" + data:post.id' style="font-size:0.9rem;color:inherit;">Edit this post</a>
+    </div>
+  </div>
+  
+  
+  <b:include name='@view/post-header'/>
+  <div class="post-body">
+    <data:post.body/>
+  </div>
+
+  
+</article>
+
+
+<b:include name='@modules/yt-iframe'/>
+<b:include name='@modules/codeblock'/>
+<b:include name='@modules/live-html'/></b:includable>
+    <b:includable id='@view/song'><meta property='og:description' expr:content='data:post.snippets.short'/>
+<meta name='description' expr:content='data:post.snippets.short'/>
+<meta expr:content='data:post.author.name' name='author'/>
+<b:include name='css' data='{ path: "index.css" }'/>
+<b:include name='css' data='{ path: "etx.css" }'/>
+<style>
+	@media (min-width:720px) {
+    .above-content-ads {display:none}    
+  }
+	
+	p {
+	  line-height: 26px;
+	  margin-bottom: 26px;
+	  margin-top: 26px;
+	}
+</style>
+
+<style>
+  table[data-type="pre"] {
+    border: none!important;
+  }
+  table[data-type="pre"] pre {
+    margin:0!important;
+  }
+</style>
+
+<b:if cond='data:post.labels any (l => l.name == "use-summary")'>
+  <style>
+    .post-body > p:first-child {
+        background: #eaf3fb;
+        padding: 1rem;
+        display: none;
+    }
+    .post-summary {
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+    .post-body > p:first-child:before {content: 'summary';display: block;font-size: 0.8rem;}
+  </style>
+</b:if>
+<style>
+  .below-content-ads {display: none}
+  @media (max-width:719px) {
+    .container {gap:0}
+    .below-content-ads {display: block}
+  }
+</style>
+
+
+<article>
+  
+  <div style="min-height:30px;">
+    <div class="item-control blog-admin">
+      <a expr:href='"https://www.blogger.com/blog/post/edit/" + data:blog.blogId + "/" + data:post.id' style="font-size:0.9rem;color:inherit;">Edit this post</a>
+    </div>
+  </div>
+  
+  <b:include name='@modules/song-controls'/>  
+  <div id="chordy-container-width"></div>
+  <h1 class="post-title">
+    <data:post.title/>
+  </h1>
+  <div class="post-body">
+    <data:post.body/>
+  </div>
+  
+</article>
+
+
+<b:include name='@modules/chordy'/>  
+<b:include name='@modules/yt-iframe'/></b:includable>
+    <b:includable id='@view/music-tutorial'><meta property='og:description' expr:content='data:post.snippets.short'/>
+<meta name='description' expr:content='data:post.snippets.short'/>
+<meta expr:content='data:post.author.name' name='author'/>
+<b:include name='css' data='{ path: "index.css" }'/>
+<b:include name='css' data='{ path: "etx.css" }'/>
+<style>
+	@media (min-width:720px) {
+    .above-content-ads {display:none}    
+  }
+	
+	p {
+	  line-height: 26px;
+	  margin-bottom: 26px;
+	  margin-top: 26px;
+	}
+</style>
+
+<style>
+  table[data-type="pre"] {
+    border: none!important;
+  }
+  table[data-type="pre"] pre {
+    margin:0!important;
+  }
+</style>
+
+<b:if cond='data:post.labels any (l => l.name == "use-summary")'>
+  <style>
+    .post-body > p:first-child {
+        background: #eaf3fb;
+        padding: 1rem;
+        display: none;
+    }
+    .post-summary {
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+    .post-body > p:first-child:before {content: 'summary';display: block;font-size: 0.8rem;}
+  </style>
+</b:if>
+<style>
+  .below-content-ads {display: none}
+  @media (max-width:719px) {
+    .container {gap:0}
+    .below-content-ads {display: block}
+  }
+</style>
+
+
+<article>
+  
+  <div style="min-height:30px;">
+    <div class="item-control blog-admin">
+      <a expr:href='"https://www.blogger.com/blog/post/edit/" + data:blog.blogId + "/" + data:post.id' style="font-size:0.9rem;color:inherit;">Edit this post</a>
+    </div>
+  </div>
+  
+  <b:include name='@view/post-header'/>
+  <div class="post-body">
+    <data:post.body/>
+  </div>
+
+</article>
+
+
+<b:include name='@modules/yt-iframe'/>
+<b:include name='@modules/fretchart'/>
+<b:include name='@modules/guitar-tab'/></b:includable>
+    <b:includable id='@view/featured-post'><style>
+  /* HERO POST STYLES */
+  .hero-post__mobile-thumbnail {
+    padding-top: 56.25%;
+    background-size: cover!important;
+    background-position: center!important;
+    display: block;
+  }
+  .hero-post__inner-section {
+    padding: 0 clamp(0.8rem, 0.8rem + 0.89vw, 2rem);
+  }
+  @media (min-width: 925px) {
+    .hero-post__mobile-thumbnail{display:none;}
+    .hero-post__inner-section {
+      grid-gap: 24px;
+      padding: 0 clamp(0.8rem, 0.8rem + 0.89vw, 2rem);
+      grid-template-columns: repeat(12, 1fr);
+    }
+    .hero-post__image {
+      grid-column: 1/9;
+    }
+    .hero-post__body {
+      grid-column: 9/13;
+    }
+  }
+  .hero-post__body {
+    padding: 1rem 0 4rem;
+  }
+  .hero-post__title{font-size: 2rem;}
+  @media (min-width: 1024px) {
+    .hero-post__title{font-size: 2.5rem;}
+  }
+  .hero-post__summary {
+    margin-bottom: 2rem;
+    line-height: 1.5em;
+  }
+  .hero-post__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    left: 0;
+    top: 0;
+  }
+  .hero-post__label, .hero-post__more {
+    font-size: 0.9rem;
+  }
+</style>
+
+
+<b:loop values='data:posts.first' var='post'>
+  <b:with var='thumbnail' value = 'data:post.featuredImage.isYoutube OR data:post.featuredImage ? "background:url(" + data:post.featuredImage + ")" : ""'>
+      
+    <section id="featured-post" class="hero-post" expr:data-id='data:post.id'>
+      <a class="hero-post__mobile-thumbnail position-relative" expr:href="data:post.url" expr:style="data:thumbnail"></a>
+      <section class="text-decoration-none d-grid hero-post__inner-section">
+        <a class="hero-post__image position-relative" expr:href="data:post.url">
+          <img class="position-absolute" expr:src="data:post.featuredImage" expr:srcset='data:post.featuredImage sourceSet [300,500,900,1200]'></img>
+        </a>
+        <div class="hero-post__body">
+          <p>
+            <a class="text-uppercase hero-post__label" expr:href="data:post.url">
+              Latest Update
+            </a>
+          </p>
+          <a expr:href="data:post.url">
+            <h2 class="hero-post__title">
+              <data:post.title/>
+            </h2>
+            <p class="hero-post__summary">
+              <data:post.body/>
+            </p>
+            <span class="hero-post__more text-uppercase fw-bold">Read Article</span>
+          </a>
+        </div>
+      </section>
+    </section>
+
+  </b:with>
+</b:loop>  </b:includable>
+    <b:includable id='@view/popular-posts'><b:loop values='data:posts' var='post'>
+  <article>
+    <h4>
+      <a expr:href='data:post.url'><data:post.title/></a>
+    </h4>
+    <!--<data:post.body/>-->
+  </article>
+</b:loop></b:includable>
+    <b:includable id='@view/bottom-nav-links'><style>
+  /*bottom nav links*/
+  .bottom-nav-link {
+    /*background: white;*/
+    /*display: inline-flex;*/
+    /*border-radius: 28px;*/
+    /*margin: 1rem;*/
+    text-decoration: none;
+    align-items: center;
+    padding: 14px 24px;
+    font-size: 32px!important;
+    /*grid-gap: 8px;*/
+  }
+  .bottom-nav-link:hover {
+    cursor: pointer;
+    color: #2196f3;
+  }
+  .--dark .bottom-nav-link {
+    color: #dddddd;
+  }
+  .--dark .bottom-nav-link:hover {
+    color: #e9e51e;
+  }
+</style>
+<div class="d-flex justify-content-end text-decoration-none" style="margin-bottom:2rem;">
+  <b:if cond='data:newerPageUrl'>
+    <b:if cond='data:newerPageUrl != ""'>
+      <a class='bottom-nav-link material-icons' expr:href='data:newerPageUrl'>
+        arrow_back
+      </a>
+    </b:if>
+  </b:if>
+  
+  <a class="bottom-nav-link material-icons" expr:href='data:blog.canonicalHomepageUrl'>
+    home
+  </a>
+  
+  <b:if cond='data:olderPageUrl'>
+    <a class='bottom-nav-link material-icons' expr:href='data:olderPageUrl'>
+      arrow_forward
+    </a>
+  </b:if>
+</div></b:includable>
+    <b:includable id='@view/post-header'><style>
+  .post-title {
+    line-height: 1.3;
+    font-size: 3rem;
+    margin: 0;
+	}
+	.post-body a {
+	  word-break: break-word;
+    color: #3f51b5;
+    text-decoration: underline;
+	}
+	.--dark .post-body a {
+	  color: #ffeb3b;
+	}
+	.post-body a:hover {
+	  text-decoration: underline;
+	}
+</style>
+<h1 class="post-title"><data:post.title/></h1>
+<b:if cond='data:post.labels any (l => l.name == "use-summary")'>
+<p class="post-summary">
+  <data:post.snippets.long/>
+</p>
+</b:if>
+<div style="font-size:0.9rem;opacity:0.7;">
+  <b:eval expr='data:post.date format "MMMM d, YYY"'/>
+  <b:if cond='data:post.date != data:post.lastUpdated'>
+  <div>
+    Last updated on <b:eval expr='data:post.lastUpdated format "MMMM d, YYY"'/>
+  </div>
+  </b:if>
+</div>
+
+<style>
+.post-author {
+  margin: 2rem 2rem 3rem;
+}
+</style>
+
+<div class="post-author">
+  <b><data:post.author.name/></b>
+  <div style="font-size:1rem;">
+    <b:if cond='data:post.author.name == "tmpmachine"'>
+      <a href="https://twitter.com/tmpmachine">Twitter</a> . 
+      <a href="https://github.com/tmpmachine">GitHub</a> . 
+      <a href="https://youtube.com/tmpmachine7">YouTube</a>
+    <b:else/>
+      <a href="https://instagram.com/yuliusyoel">Instagram</a> . 
+      <a href="https://github.com/yyoel">GitHub</a>
+    </b:if>
+  </div>
+</div></b:includable>
+    <b:includable id='@view/404'><article>
+  <h1>404 Not Found</h1>
+  <p>Page not found. It might have been moved or deleted. Try searching this blog.</p>
+</article>
+
+<p>
+  Blogger related posts has been moved to <a class='text-decoration-underline' href='https://xmlexpr.blogspot.com/'>XMLExpr</a>. If you're looking for a specific missing post please send me an email at tmpmachine7+paco@gmail.com.
+</p></b:includable>
+    
+    <!--CSS-->
+    <b:includable id='@css/theme'><style>/*<![CDATA[ /**/
+:root {
+  --theme-color-header: #404956;
+  --theme-color-header-80: #59626e;
+  --theme-color-body: initial;
+  --theme-color-body-text: initial;
+  
+  --theme-color-bg-primary: white;
+  --theme-color-bg-primary-80: #f5f5f5;
+  
+  /*search hints*/
+  --theme-color-search-background: #fafafa;
+  --theme-color-search-border: #e7e7e7;
+  --theme-color-hint-border: #e9e9e9;
+  --theme-color-search-hover: #e3e3e3;
+  
+  /* sizes */
+  --nav-height: 68px;
+}
+
+html.--dark {
+  --theme-color-bg-primary: #2d2f32;
+  --theme-color-bg-primary-80: #3c3e42;
+  /*--theme-color-bg-primary-text: #f7f7f7;*/
+  
+  /*--theme-color-body: #16171a;*/
+  --theme-color-body: #2c2d32;
+  --theme-color-body-text: #ededed;
+  --theme-color-header: #212226;
+  --theme-color-header-80: #303234;
+  
+  /*search hints*/
+  --theme-color-search-background: var(--theme-color-bg-primary-80);
+  --theme-color-search-border: var(--theme-color-bg-primary-80);
+  --theme-color-hint-border: #525252;
+  --theme-color-search-hover: var(--theme-color-bg-primary);
+}
+
+
+
+body {
+  background: var(--theme-color-body);
+  color: var(--theme-color-body-text);
+}
+a{color:var(--theme-color-body-text)} /*]]>*/</style></b:includable>
+    <b:includable id='@css/normalize'><style>/*<![CDATA[ /*! normalize.css v3.0.1 | MIT License | git.io/normalize */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:bold}table{border-collapse:collapse;border-spacing:0}td,th{padding:0} /*]]>*/</style></b:includable>
+    <b:includable id='@css/global'><style>/*<![CDATA[ /**/
+* {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.overflow-hidden{overflow:hidden}
+.flex-wrap{flex-wrap:wrap}
+.d-flex{display:flex}.d-grid{display:grid}.d-block{display:block}
+.justify-content-between{justify-content:space-between}.justify-content-end{justify-content:flex-end}
+.position-relative{position:relative}.position-absolute{position:absolute}
+.align-items-center{align-items:center}
+.m-auto{margin:auto}
+.w-100{width:100%}
+a.text-decoration-none,.text-decoration-none a{text-decoration:none}.text-uppercase{text-transform:uppercase}.text-decoration-underline{text-decoration:underline}
+.fw-bold{font-weight:bold} /*]]>*/</style></b:includable>
+    <b:includable id='@css/widgets'><style>/*<![CDATA[ /**/
+.cloud-label-widget-content .label-count {
+    margin-left: 4px;
+    font-size: 14px;
+    background: #407ebb;
+    color: white;
+    padding: 2px 10px;
+    border-radius: 10px;
+} /*]]>*/</style></b:includable>
+    <b:includable id='@css/entry'><style>/*<![CDATA[ /**/
+
+body{line-height:1.5}
+ul li{margin-bottom:12px}
+
+/*comments*/
+html.--dark .comment-replybox-single:not(:empty), 
+html.--dark .comment-replybox-thread:not(:empty), 
+html.--dark .comments.embed .comment-form {
+  background: white;
+  color: initial;
+  padding: 1rem;
+  border-radius: 6px;
+  filter: brightness(0.95);
+}
+
+ /*]]>*/</style></b:includable>
+    <b:includable id='@css/entry-elements'><style>/*<![CDATA[ /* revamped posts element */
+/* custom highlight */
+span[style="background-color: #fcff01;"] {
+  background: #242424!Important;
+  padding: 3px 6px;
+  margin: 0 2px;
+  white-space: nowrap;
+  border-radius: 3px;
+  color: white;
+  font-size: 0.8rem;
+  font-family: monospace;
+  position: relative;
+  top: -2px;
+}
+.--dark span[style="background-color: #fcff01;"] {
+  background: #333333!Important;
+  border: 1px solid #717171;
+}
+span[style="background-color: #01ffff;"] {
+  background: #e9e9e9!Important;
+  padding: 0px 6px;
+  display: inline-block;
+  white-space: nowrap;
+  border-radius: 3px;
+  color: black;
+  font-size: 0.9rem;
+  position: relative;
+  top: -1px;
+}
+table.tr-caption-container {
+  display: grid;
+  justify-content: center;
+  /*font-size: 1rem;*/
+  /*background: hsl(0deg 0% 98%);*/
+  /*padding: 1rem 0;*/
+  margin-left: -1rem!important;
+  margin-right: -1rem!important;
+  font-size: 0.9rem;
+  /*border-radius: 24px;*/
+  overflow: hidden;
+}
+
+/*post elements*/
+.--dark table[data-type="blockquote-warning"] {
+  filter: brightness(0.9);
+  color: initial;
+} /*]]>*/</style></b:includable>
+    <b:includable id='@css/comment'><style>/*<![CDATA[ /**/
+.comment-thread > ol {
+    list-style: none;
+    padding: 0;
+}
+
+.comment-header {
+  display: inline-flex;
+  column-gap: 4px;
+  align-items: center;
+}
+
+span.icon.user.blog-author:after {
+    content: "Author";
+    display: inline-block;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    background: #ffc107;
+    padding: 0 8px;
+    font-weight: bold;
+}
+
+.comment-header a {
+    text-decoration: none;
+    font-style: initial;
+    color: inherit;
+}
+
+.comment-header .datetime {
+    font-size: 0.9rem;
+    opacity: 0.6;
+}
+
+span.comment-actions.secondary-text {
+    display: flex;
+    gap: 24px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+span.comment-actions.secondary-text a {
+    display: inline-block;
+    text-decoration: none;
+   color: #242424;
+    font-weight: bold;
+}
+
+.avatar-image-container img {
+  border-radius: 50%;
+  margin-top: 4px;
+  width: 46px;
+  background: url('https://1.bp.blogspot.com/-lPlOFsFZhiw/YYK3sfYZfSI/AAAAAAAAQ5I/7_x9OpHG6UsXlWtRxuyjCx2SYO6gr_l-ACLcBGAsYHQ/s48-c-rw/2021-11-03%2B23_23_36-Untitled%2B%25282%2529%2B-%2BWindows%2BPhoto%2BViewer.jpg');
+}
+
+.comment-replies .avatar-image-container img {
+    width: 32px;
+}
+
+.comment-replies .avatar-image-container {
+    justify-content: end;
+    display: grid;
+}
+
+.comment-replies {
+    grid-column: 1/3;
+}
+
+
+.comment-replybox-single {
+    grid-column: 2;
+}
+
+.comment-thread .comment {
+    display: grid;
+    grid-template-columns: 46px 1fr;
+    gap: 10px 14px;
+}
+
+p.comment-content {
+    font-size: 14px;
+    line-height: 1.3rem;
+    margin-top: 4px;
+    margin-bottom: 8px;
+    word-break: break-word;
+    font-family: 'Roboto';
+}
+.comment-block {
+    padding-bottom: 8px;
+}
+
+cite.user a {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+#top-continue a.comment-reply {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  color: #5e5e5e;
+  background: #ffffff;
+  border: 2px dashed;
+  padding: 8px;
+  opacity: 0.8;
+}
+
+.item-control {
+    display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+#comments .comment-thread .thread-count {
+    display: none;
+}
+#comment-holder .continue:not(#top-continue) {
+    display: none;
+}
+#top-continue {
+    margin-top: 2rem;
+}
+
+.comment-replybox-thread {
+    margin-top: 1.5rem;
+} /*]]>*/</style></b:includable>
+    <b:includable id='@css/layout'><style>/*<![CDATA[ /**/
+@media (min-width: 800px) {
+    .main-container {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      grid-gap: 16px;
+      max-width: 1024px;
+      margin: auto;
+    }
+}
+
+/*Blog widget*/
+#main {
+    padding: 1rem;
+}
+.bottom-nav-link-container{margin-top:3rem}
+
+/*Sidebar*/
+#sidebar {
+    padding: 1rem;
+}
+#sidebar .widget:not(:last-child) {
+    border-bottom: 1px dashed;
+    margin-bottom: 2rem;
+}
+ /*]]>*/</style></b:includable>
+    <b:includable id='@css/layout-homepage'><style>/*<![CDATA[ /**/
+/* OUTER LAYOUT */
+.main-container {
+  padding: 0 clamp(0.8rem, 0.8rem + 0.89vw, 2rem);
+}
+@media (min-width: 1200px) {
+  .main-container {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    grid-gap: 48px;
+    max-width: 1280px;
+    margin: auto;
+    margin-top: 2rem;
+  }
+}
+
+/* GRID POSTS */
+/*.post-container{*/
+  /*max-width:850px!important;*/
+  /*margin:auto;*/
+/*}*/
+.post-items {
+  /*background: #ffffff;*/
+  /*border-radius: 8px;*/
+}
+.grid-posts{
+  display: grid;
+  grid-gap: 32px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+@media (max-width:800px) {
+  /*.post-container {*/
+    /*max-width:650px!important;*/
+  /*}*/
+  .grid-posts{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width:599px) {
+  .grid-posts{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+} /*]]>*/</style></b:includable>
+    <b:includable id='@css/layout-search'><style>/*<![CDATA[ /**/
+/* OUTER LAYOUT */
+.main-container {
+  padding: 0 clamp(0.8rem, 0.8rem + 0.89vw, 2rem);
+}
+@media (min-width: 1200px) {
+  .main-container {
+    max-width: 1280px;
+    margin: auto;
+    margin-top: 2rem;
+  }
+} /*]]>*/</style></b:includable>
+    
+    <!--JS-->
+    <b:includable id='@js/search-hints'><script>/*<![CDATA[ /**/function BlogSearch(t){console.log;let e=function(t,e=document){return e.querySelectorAll(t)},n={haystack:t.haystack};function s(){t.resultEl.style.display="block"}n.init=function(){t.inputEl.addEventListener("blur",e=>(function(e){e.relatedTarget&&e.relatedTarget.classList.contains("search-hints")||(t.resultEl.style.display="none")})(e)),t.inputEl.addEventListener("focus",s),t.inputEl.addEventListener("keydown",()=>i.selectHints()),t.inputEl.addEventListener("input",t=>i.find(t.target.value))};let i={hints:[],pageId:"",keywords:[],match:function(t){if(this.find.idx=-1,t.trim().length<2)return[];var e=[],s=[];t=t.replace(/-|,|'/g,"");for(var i,o,a,r,l=0,d=1,c=1;l<n.haystack.length&&!(d>10);l++){titleOri=n.haystack[l].title;let u=n.haystack[l].link;(o=(i=titleOri.replace(/-|,|'/g,"")).toLowerCase().indexOf(t.toLowerCase()))>=0&&(r=0,null!==(a=titleOri.substr(o,t.length).match(/-|,|'/g))&&(r=a.length),i="<b>"+titleOri.substr(0,o)+"</b>"+titleOri.substr(o,t.length+r)+"<b>"+titleOri.substr(o+t.length+r)+"</b>",0===o?(e.push({index:n.haystack[l].index,ori:titleOri.replace(/'/g,"!!!"),title:i,link:u}),d++):(s.push({index:n.haystack[l].index,ori:titleOri.replace(/'/g,"!!!"),title:i,link:u}),c++))}if(d<10)for(l=0;l<c-1&&d<10;l++)e.push(s[l]),d++;return e},selectHints:function(){let t=e(".search-hints");if(0!==t.length)switch(event.keyCode){case 27:document.activeElement.blur();break;case 13:this.find.idx>-1?(event.preventDefault(),t[this.find.idx].click()):handleCommand();break;case 38:return event.preventDefault(),this.find.idx--,void(-2==this.find.idx?(this.find.idx=t.length-1,t[this.find.idx].classList.toggle("selected")):(t[this.find.idx+1].classList.toggle("selected"),this.find.idx>-1&&this.find.idx<t.length&&t[this.find.idx].classList.toggle("selected")));case 40:return this.find.idx++,void(this.find.idx==t.length?(this.find.idx=-1,t[t.length-1].classList.toggle("selected")):(t[this.find.idx].classList.toggle("selected"),this.find.idx>0&&this.find.idx<t.length&&t[this.find.idx-1].classList.toggle("selected")))}},highlightHints:function(){let t=Number(this.dataset.searchIndex);for(var n=e(".search-hints"),s=0;s<n.length;s++)s==t?n[s].classList.toggle("selected",!0):n[s].classList.toggle("selected",!1);i.find.idx=t},displayResult:function(n){t.resultEl.innerHTML="";for(let s of n){let n=t.resultTemplate.content.cloneNode(!0);e(".title",n)[0].innerHTML=s.title,e(".title",n)[0].href=s.link,t.resultEl.appendChild(n),0}},find:function(e){if(clearTimeout(this.wait),this.v=e,this.v.trim().length<2)t.resultEl.innerHTML="";else{var n=i.match(this.v.toLowerCase());this.keywords.indexOf(e)<0?(this.displayResult(n),this.keywords.push(e)):n.length>=0&&this.displayResult(n)}}};return n}function BlogFeeder(t){console.log;let e={posts:[]},n={db:null,objStoreName:"settings",idbVersion:1,idbName:t.blog,blogId:t.blogId},s={start:"1",end:"unknown",updatedPoint:new Date(0).toISOString(),updated:new Date(0).toISOString()},i={getData:["id","title","link"],maxResults:50};function o(t){const e=new XMLHttpRequest;e.open("GET",`https://www.blogger.com/feeds/${n.blogId}/posts/summary?alt=json&max-results=${i.maxResults}&orderby=updated&updated-min=${s.updated}&start-index=${(1*s.start-1)*i.maxResults+1}&rand=${(new Date).getTime()}`),e.onload=function(){!function(t,e){const n=JSON.parse(t.responseText);s.end=Math.ceil(n.feed.openSearch$totalResults.$t/i.maxResults),n.feed.entry?function(t,e){let n=[];1==s.start&&(s.updatedPoint=t[0].updated.$t);for(let e of t){let t={};for(let n of i.getData)r(n,t,e);n.push(t)}e(n),function(t){s.start<s.end?(s.start++,a(function(){o(t)})):(s.start="1",s.end="unknown",s.updated=new Date(new Date(s.updatedPoint).getTime()+1).toISOString(),a(function(){o(t)}))}(e)}(n.feed.entry,e):e(null)}(e,t)},e.onerror=(()=>{}),e.send()}function a(t){n.db.transaction([n.objStoreName],"readwrite").objectStore(n.objStoreName).put({type:"settings",data:s}).onsuccess=function(e){t()}}function r(t,e,n){switch(t){case"georss$featurename":e.sid=n[t].$t;break;case"link":for(let s of n[t])if("alternate"==s.rel){e[t]=s.href;break}break;case"id":e[t]=n[t].$t.split("post-")[1];break;default:e[t]=n[t].$t}}function l(t){if(t){n.db.transaction([n.objStoreName],"readwrite").objectStore(n.objStoreName).get("posts").onsuccess=(s=>(function(t,s){let i=t.target.result,o=void 0===i?{}:i.data;for(let t of s){let n={title:t.title,link:t.link};void 0===o[t.id]&&e.posts.push(n),o[t.id]=n}n.db.transaction([n.objStoreName],"readwrite").objectStore(n.objStoreName).put({type:"posts",data:o}).onsuccess=(t=>(function(t){n.db.transaction([n.objStoreName],"readwrite").objectStore(n.objStoreName).get("posts").onsuccess=(t=>(function(t){e.posts.length=0;let n=t.target.result;if(null!=n)for(let t in n.data)e.posts.push(n.data[t])})(t))})())})(s,t))}else!function(){let t=`https://www.blogger.com/feeds/${n.blogId}/posts/summary?alt=json&max-results=0&orderby=updated&rand=${(new Date).getTime()}`;const i=new XMLHttpRequest;i.open("GET",t),i.onload=(t=>(function(t){let i=t.target;const a=JSON.parse(i.responseText);let r=parseInt(a.feed.openSearch$totalResults.$t);e.posts.length!=r&&(s={start:"1",end:"unknown",updatedPoint:new Date(0).toISOString(),updated:new Date(0).toISOString()},new Promise(t=>{let e=n.db.transaction([n.objStoreName],"readwrite"),s=e.objectStore(n.objStoreName),i=s.clear();i.onsuccess=function(e){t()}}).then(()=>{o(l)}))})(t)),i.onerror=(()=>{}),i.send()}()}function d(){n.db.transaction([n.objStoreName],"readwrite").objectStore(n.objStoreName).get("settings").onsuccess=(t=>(function(t){let e=t.target.result;void 0===e?o(l):(s=e.data,o(l))})(t))}return e.init=function(){if(!window.indexedDB)return;function t(t){n.db=t.target.result,n.db.transaction([n.objStoreName],"readwrite").objectStore(n.objStoreName).get("posts").onsuccess=(t=>(function(t){let n=t.target.result;if(null!=n)for(let t in n.data)e.posts.push(n.data[t])})(t)),d()}let s=window.indexedDB.open(n.idbName,n.idbVersion);s.onsuccess=(e=>t(e)),s.onupgradeneeded=(t=>(function(t){n.db=t.target.result,n.db.createObjectStore(n.objStoreName,{keyPath:"type"})})(t))},e}let feeder=BlogFeeder({blog:"pacolemon",blogId:"180767010178431888"}),search=BlogSearch({inputEl:$("#input-search")[0],resultEl:$("#search-result")[0],resultTemplate:$("#tmp-hints")[0],haystack:feeder.posts});feeder.init(),search.init(); /*]]>*/</script></b:includable>
+    <b:includable id='@js/search-hints-v2'><script>/*<![CDATA[ /**/
+function BlogSearch(config) {
+  let L = console.log;
+  let $ = function(selector, node=document) { return node.querySelectorAll(selector) };
+  
+  let SELF = {
+    haystack: config.haystack,
+  };
+  
+  let index = 0;
+  var wgSearchRes;
+  let inputCheker = $('.screen-check-isMobileSearch')[0];
+  let inputDesktop = $('#search-result')[0];
+  let inputMobile = $('#search-result-2')[0];
+  
+  SELF.init = function() {
+    config.inputEl.addEventListener('blur', (e) => blurSearchInput(e));
+    config.inputEl.addEventListener('focus', focusInput);
+    config.inputEl.addEventListener('keydown', () => wgSearch.selectHints());
+    config.inputEl.addEventListener('input', (e) => { switchInput(); wgSearch.find(e.target.value); });
+  };
+  
+  function switchInput() {
+    if (inputCheker.offsetHeight > 0) {
+      config.resultEl = inputMobile;  
+    }  else {
+      config.resultEl = inputDesktop;  
+    }
+  }
+  
+  function blurSearchInput(e) {
+    switchInput();
+    if (!(e.relatedTarget && e.relatedTarget.classList.contains('search-hints')))  {
+      if (inputCheker.offsetHeight === 0) {
+        config.resultEl.style.display='none';
+      }
+    }
+  }
+  
+  function focusInput() {
+    switchInput();
+    document.body.classList.toggle('MS', true);
+    config.resultEl.style.display='block';
+  }
+  
+  function insertTemplate() {
+    let index = this.dataset.index;
+    let data = SELF.haystack[index];
+    config.resultEl.innerHTML = '';
+    toggleInsertSnippet();
+    if (data.callback) {
+      data.callback();
+    } else {
+      let curCol = fileTab[activeTab].editor.env.editor.getCursorPosition().column;
+      fileTab[activeTab].editor.env.editor.insert(data.snippet);
+      fileTab[activeTab].editor.env.editor.moveCursorToPosition({row:fileTab[activeTab].editor.env.editor.getCursorPosition().row+data.pos[0], column: curCol+data.pos[1]});
+      fileTab[activeTab].editor.env.editor.focus();
+    }
+  }
+  
+  let wgSearch = {
+    hints: [],
+    pageId: '',
+    keywords: [],
+    match: function(value) {
+      this.find.idx = -1;
+  
+      if (value.trim().length < 2) return [];
+      var data = [];
+      var extraMatch = [];
+      value = value.replace(/-|,|'/g,'');
+      for (var i=0,title,matchIdx,match=1,xmatch=1,wildChar,offset,creps; i<SELF.haystack.length; i++) {
+        if (match > 10) break;
+        titleOri = SELF.haystack[i].title;
+        let link = SELF.haystack[i].link;
+        title = titleOri.replace(/-|,|'/g,'');
+        matchIdx = title.toLowerCase().indexOf(value.toLowerCase());
+        if (matchIdx >= 0) {
+          offset = 0;
+          wildChar = titleOri.substr(matchIdx,value.length).match(/-|,|'/g);
+          if (wildChar !== null)
+            offset = wildChar.length;
+          title = '<b>'+titleOri.substr(0,matchIdx)+'</b>'+titleOri.substr(matchIdx,value.length+offset)+'<b>'+titleOri.substr(matchIdx+value.length+offset)+'</b>';
+          
+          if (matchIdx === 0) {
+              data.push({index:SELF.haystack[i].index,ori:titleOri.replace(/'/g,'!!!'),title:title,link:link});
+              match++;
+          } else {
+              extraMatch.push({index:SELF.haystack[i].index,ori:titleOri.replace(/'/g,'!!!'),title:title,link:link});
+              xmatch++;
+          }
+        }
+      }
+      if (match < 10) {
+        for (var i=0; i<xmatch-1 && match<10; i++) {
+          data.push(extraMatch[i]);
+          match++;
+        }
+      }
+      return data;
+    },
+    selectHints: function() {
+      let hints = $('.search-hints');
+      if (hints.length === 0)
+          return
+      switch(event.keyCode) {
+        case 27: // escape
+          document.activeElement.blur();
+          break;
+        case 13: // enter
+          if (this.find.idx > -1) {
+            event.preventDefault();
+            hints[this.find.idx].click();
+          }
+        break;
+        case 38: // up
+          event.preventDefault();
+          this.find.idx--;
+          if (this.find.idx == -2) {
+            this.find.idx = hints.length-1;
+            hints[this.find.idx].classList.toggle('selected');
+          } else {
+            hints[this.find.idx+1].classList.toggle('selected');
+            if (this.find.idx > -1 && this.find.idx < hints.length)
+              hints[this.find.idx].classList.toggle('selected');
+          }
+          return;
+        break;
+        case 40: // down
+          this.find.idx++;
+          if (this.find.idx == hints.length) {
+            this.find.idx = -1;
+            hints[hints.length-1].classList.toggle('selected');
+          } else {
+            hints[this.find.idx].classList.toggle('selected');
+            if (this.find.idx > 0 && this.find.idx < hints.length)
+              hints[this.find.idx-1].classList.toggle('selected');
+          }
+          return;
+        break;
+      }
+    },
+    highlightHints: function() {
+      let idx = Number(this.dataset.searchIndex);
+      var hints = $('.search-hints');
+      for (var i=0; i<hints.length; i++) {
+        if (i == idx)
+          hints[i].classList.toggle('selected',true);
+        else
+          hints[i].classList.toggle('selected',false);
+      }
+      wgSearch.find.idx = idx;
+    },
+    displayResult: function(data) {
+      config.resultEl.innerHTML = '';
+      let i = 0;
+      let fragmend = document.createDocumentFragment();
+      for (let hint of data) {
+        let tmp = config.resultTemplate.content.cloneNode(true);
+        $('.title', tmp)[0].innerHTML = hint.title;
+        $('.title', tmp)[0].href = hint.link;
+        fragmend.appendChild(tmp);
+        i++;
+      }
+      config.resultEl.appendChild(fragmend);
+    },
+    find: function(v) {
+      clearTimeout(this.wait);
+      this.v = v;
+      
+      if (this.v.trim().length < 2) {
+        config.resultEl.innerHTML = '';
+        return;
+      }
+      
+      var data = wgSearch.match(this.v.toLowerCase());
+      
+      if (this.keywords.indexOf(v) < 0) {
+        this.displayResult(data);
+        this.keywords.push(v)
+      }
+      else if (data.length >= 0)
+        this.displayResult(data);
+      
+    }
+  };
+  
+  return SELF;
+}
+
+
+function BlogFeeder(config) {
+  
+  let L = console.log;
+  
+  let SELF = {
+    posts: [],
+    lastUpdated: (new Date(0)).getTime(),
+  };
+  
+  if (window.localStorage.getItem('search-hints')) {
+    SELF = JSON.parse(window.localStorage.getItem('search-hints'));
+    checkForUpdate();
+  } else {
+    fetchHints();
+  } 
+
+  function checkForUpdate() {
+    fetch('https://www.blogger.com/feeds/3000166519687388789/pages/default/3892814989754868497?alt=json&ran='+Math.random())
+    .then(r=>r.json())
+    .then(feed => {
+      let updatedTime = (new Date(feed.entry.updated.$t)).getTime();
+      if (SELF.lastUpdated < updatedTime) {
+        window.setTimeout(function() {
+          fetchHints();
+        }, 3500);
+      }
+    });
+  }
+  
+  function fetchHints() {
+    fetch('https://www.blogger.com/feeds/3000166519687388789/pages/default/3703839117892215893?alt=json&ran='+Math.random())
+    .then(r=>r.json())
+    .then(feed => {
+      SELF.posts.length = 0;
+      SELF.lastUpdated = (new Date(feed.entry.updated.$t)).getTime();
+      let data = feed.entry.content.$t.split('|');
+      for (let i=0; i<data.length-1; i++) {
+        SELF.posts.push({
+          title: data[i],
+          link: 'https://bukupujian2.blogspot.com/20'+data[i+1]+'.html' + (window.globalConfig.isMobile ? '?m=1' : ''),
+        });
+        i++;
+      }
+      window.localStorage.setItem('search-hints', JSON.stringify(SELF));
+    });
+  }
+  
+  return SELF;
+}
+
+let feeder = BlogFeeder({
+  blog: 'pacolemon',
+  blogId: '180767010178431888',
+  entryId: '3703839117892215893',
+});
+let search = BlogSearch({
+  inputEl: $('#input-search'),
+  resultEl: $('#search-result-2'),
+  resultTemplate: $('#tmp-hints'),
+  haystack: feeder.posts,
+});
+
+search.init(); /*]]>*/</script></b:includable>
+    <b:includable id='@js/blogfeeds'><script>/*<![CDATA[ /**/
+;(function() {
+  
+  if ('BlogFeeds' in window) {
+    console.error('blogfeeds.js', 'BlogFeeds already defined.');
+    return;
+  }
+  
+  function BlogFeeds(config) {
+    
+    let L = console.log;
+    
+    let SELF = {
+      posts: [],
+    };
+    
+    let _ = {
+      db: null,
+      objStoreName: 'settings',
+      idbVersion: 1,
+      idbName: config.blog,
+      blogId: config.blogId,
+    };
+    
+    let settings = {
+      start: '1',
+      end: 'unknown',
+      updatedPoint: (new Date(0)).toISOString(),
+      updated: (new Date(0)).toISOString(),
+    };
+    
+    let option = {
+      getData: ['id','title','link'],
+      maxResults: 50
+    };
+    
+    function getUpdateURL() {
+      let URL = `https://www.blogger.com/feeds/${_.blogId}/posts/summary?alt=json&max-results=${option.maxResults}&orderby=updated&updated-min=${settings.updated}&start-index=${(settings.start*1-1) * option.maxResults + 1}&rand=${(new Date()).getTime()}`;
+      return URL;
+    }
+      
+    function getUpdateMessage() {
+      let message;
+      if (settings.end == 'unknown')
+        message = 'Checking for update...';
+      else {
+        if (settings.start > settings.end)
+          message = 'Checking for update...';
+        else
+          message = 'Downloading blog posts... (' + settings.start + '/' + settings.end + ')';
+      }
+      return message;
+    }
+    
+    function getUpdate(callback) {
+      const request = new XMLHttpRequest();
+      request.open('GET', getUpdateURL());
+      request.onload = function() { handleUpdate(request, callback) };
+      request.onerror = () => {
+      };
+      request.send();
+    }
+    
+    function saveSettings(callback) {
+       let transaction = _.db.transaction([_.objStoreName], 'readwrite');
+        let objStore  = transaction.objectStore(_.objStoreName);
+        let request = objStore.put({type:'settings',data:settings});
+        request.onsuccess = function(event) {
+          callback();
+        };
+    }
+    
+    function handleUpdate(request, callback) {
+    
+      const result = JSON.parse(request.responseText);
+      settings.end = Math.ceil(result.feed.openSearch$totalResults.$t/option.maxResults);
+      if (result.feed.entry) {
+        doSomeWork(result.feed.entry, callback);
+      } else {
+        callback(null);
+      }
+    }
+    
+    function doSomeWork(entriesFeed, callback) {
+      let entries = [];
+      if (settings.start == 1)
+        settings.updatedPoint = entriesFeed[0].updated.$t;
+        
+      for (let e of entriesFeed) {
+        let entry = {};
+        for (let opt of option.getData) {
+          readOpt(opt, entry, e);
+        }
+        entries.push(entry);
+      }
+    
+      callback(entries);
+      updateSetting(callback);
+    }
+    
+    function readOpt(opt, entry, e) {
+      switch (opt) {
+        case 'link':
+          for (let link of e[opt]) {
+            if (link.rel == 'alternate') {
+              entry[opt] = link.href;
+              break;
+            }
+          }
+          break;
+        case 'id':
+          entry[opt] = e[opt].$t.split('post-')[1];
+          break;
+        default:
+          entry[opt] = e[opt].$t;
+      }
+    }
+    
+    function updateSetting(callback) {
+      if (settings.start < settings.end) {
+        settings.start++;
+        saveSettings(function() {
+          getUpdate(callback);
+        });
+      } else {
+        settings.start = '1';
+        settings.end = 'unknown';
+        settings.updated = new Date(new Date(settings.updatedPoint).getTime()+1).toISOString();
+        saveSettings(function() {
+          getUpdate(callback);
+        });
+      }
+    }
+    
+    function updateCallback(result) {
+      if (result) {
+        let transaction = _.db.transaction([_.objStoreName], 'readwrite');
+        let objStore  = transaction.objectStore(_.objStoreName);
+        let request = objStore.get('posts');
+        request.onsuccess = (e) => ongetposts(e, result);
+      } else {
+        checkIntegrity();
+      }
+    }
+    
+    function ongetposts(event, result) {
+      let res = event.target.result;
+      let posts = (res === undefined) ? {} : res.data;
+      for (let data of result) {
+        let postData = {
+          title: data.title,
+          link: data.link,
+        };
+        if (posts[data.id] === undefined)
+          SELF.posts.push(postData);
+        posts[data.id] = postData;
+      }
+      let transaction = _.db.transaction([_.objStoreName], 'readwrite');
+      let objStore  = transaction.objectStore(_.objStoreName);
+      let request = objStore.put({type:'posts',data:posts});
+      request.onsuccess = (e) => onstore(e);
+    }
+    
+    function onstore(event) {
+      let transaction = _.db.transaction([_.objStoreName], 'readwrite');
+      let objStore  = transaction.objectStore(_.objStoreName);
+      let request = objStore.get('posts');
+      request.onsuccess = (e) => onget(e);
+    }
+    
+    function onget(event) {
+      SELF.posts.length = 0;
+      let res = event.target.result;
+      if (res !== undefined) {
+        for (let key in res.data) {
+          SELF.posts.push(res.data[key]);
+        } 
+      }
+    }
+    
+    function clearData() {
+      return new Promise(resolve => {
+        let transaction = _.db.transaction([_.objStoreName], "readwrite");
+        let objectStore = transaction.objectStore(_.objStoreName);
+        let objectStoreRequest = objectStore.clear();
+        objectStoreRequest.onsuccess = function(event) {
+          resolve();
+        };
+      });
+    }
+    
+    function checkIntegrity() {
+      let URL = `https://www.blogger.com/feeds/${_.blogId}/posts/summary?alt=json&max-results=0&orderby=updated&rand=${(new Date()).getTime()}`;
+      const request = new XMLHttpRequest();
+      request.open('GET', URL);
+      request.onload = (e) => onloadrequest(e);
+      request.onerror = () => {};
+      request.send();
+    }
+    
+    function onloadrequest(e) { 
+      let request = e.target;
+      const result = JSON.parse(request.responseText);
+      let totalPublished = parseInt(result.feed.openSearch$totalResults.$t);
+      if (SELF.posts.length != totalPublished) {
+        settings = {
+          start: '1',
+          end: 'unknown',
+          updatedPoint: (new Date(0)).toISOString(),
+          updated: (new Date(0)).toISOString(),
+        };
+        clearData().then(() => {
+          getUpdate(updateCallback);
+        });
+      } else {
+      }
+    }
+    
+    function checkUpdate() {
+      let transaction = _.db.transaction([_.objStoreName], 'readwrite')
+      let objStore  = transaction.objectStore(_.objStoreName);
+      let request = objStore.get('settings');
+      request.onsuccess = (e) => ongetsetting(e);
+    }
+    
+    function ongetsetting(event) {
+      let res = event.target.result;
+      if (res === undefined) {
+        getUpdate(updateCallback);
+      } else {
+        settings = res.data;
+        getUpdate(updateCallback);
+      }
+    }
+    
+    SELF.init = function() {
+      
+      if (!window.indexedDB) {
+        return;
+      }
+      
+      function onsuccess(event) {
+        _.db = event.target.result;
+        initPosts()
+      }
+      
+      function onupgradeneeded(event) {
+        _.db = event.target.result;
+        let objectStore = _.db.createObjectStore(_.objStoreName, { keyPath: "type" });
+      }
+      
+      function initPosts() {
+        let transaction = _.db.transaction([_.objStoreName], 'readwrite')
+        let objStore  = transaction.objectStore(_.objStoreName);
+        let request = objStore.get('posts');
+        request.onsuccess = (e) => ongetposts(e);
+        checkUpdate();
+      }
+      
+      function ongetposts(event) {
+        let res = event.target.result;
+        if (res != undefined) {
+          for (let key in res.data) {
+            SELF.posts.push(res.data[key]);
+          } 
+        }
+      }
+      
+      let DBOpenRequest = window.indexedDB.open(_.idbName, _.idbVersion);
+      DBOpenRequest.onsuccess = (e) => onsuccess(e);
+      DBOpenRequest.onupgradeneeded = (e) => onupgradeneeded(e);
+    }
+    
+    return SELF;
+  }
+  
+  window.BlogFeeds = BlogFeeds;
+  
+})(); /*]]>*/</script></b:includable>
+    <b:includable id='@js/blogsearch'><script>/*<![CDATA[ /**/
+;(function() {
+  
+  let L = console.log;
+  let $ = function(selector, node=document) { return node.querySelectorAll(selector) };
+  
+  if ('BlogSearch' in window) {
+    console.error('blogsearch.js', 'BlogSearch already defined.');
+    return;
+  }
+  
+  function BlogSearch(config) {
+    
+    let SELF = {
+      haystack: config.haystack,
+    };
+    
+    let index = 0;
+    var wgSearchRes;
+    let inputCheker = $('.screen-check-isMobileSearch')[0];
+    let inputDesktop = $('#search-result')[0];
+    let inputMobile = $('#search-result-2')[0];
+    
+    SELF.init = function() {
+      config.inputEl.addEventListener('blur', (e) => blurSearchInput(e));
+      config.inputEl.addEventListener('focus', focusInput);
+      config.inputEl.addEventListener('keydown', () => wgSearch.selectHints());
+      config.inputEl.addEventListener('input', (e) => { switchInput(); wgSearch.find(e.target.value); });
+    };
+    
+    function switchInput() {
+      if (inputCheker.offsetHeight > 0) {
+        config.resultEl = inputMobile;  
+      }  else {
+        config.resultEl = inputDesktop;  
+      }
+    }
+    
+    function blurSearchInput(e) {
+      switchInput();
+      if (!(e.relatedTarget && e.relatedTarget.classList.contains('search-hints')))  {
+        if (inputCheker.offsetHeight === 0) {
+          config.resultEl.style.display='none';
+        }
+      }
+    }
+    
+    function focusInput() {
+      switchInput();
+      document.body.classList.toggle('MS', true);
+      config.resultEl.style.display='block';
+    }
+    
+    function insertTemplate() {
+      let index = this.dataset.index;
+      let data = SELF.haystack[index];
+      config.resultEl.innerHTML = '';
+      toggleInsertSnippet();
+      if (data.callback) {
+        data.callback();
+      } else {
+        let curCol = fileTab[activeTab].editor.env.editor.getCursorPosition().column;
+        fileTab[activeTab].editor.env.editor.insert(data.snippet);
+        fileTab[activeTab].editor.env.editor.moveCursorToPosition({row:fileTab[activeTab].editor.env.editor.getCursorPosition().row+data.pos[0], column: curCol+data.pos[1]});
+        fileTab[activeTab].editor.env.editor.focus();
+      }
+    }
+    
+    let wgSearch = {
+      hints: [],
+      pageId: '',
+      keywords: [],
+      match: function(value) {
+        this.find.idx = -1;
+    
+        if (value.trim().length < 2) return [];
+        var data = [];
+        var extraMatch = [];
+        value = value.replace(/-|,|'/g,'');
+        for (var i=0,title,matchIdx,match=1,xmatch=1,wildChar,offset,creps; i<SELF.haystack.length; i++) {
+          if (match > 10) break;
+          titleOri = SELF.haystack[i].title;
+          let link = SELF.haystack[i].link;
+          title = titleOri.replace(/-|,|'/g,'');
+          matchIdx = title.toLowerCase().indexOf(value.toLowerCase());
+          if (matchIdx >= 0) {
+            offset = 0;
+            wildChar = titleOri.substr(matchIdx,value.length).match(/-|,|'/g);
+            if (wildChar !== null)
+              offset = wildChar.length;
+            title = '<b>'+titleOri.substr(0,matchIdx)+'</b>'+titleOri.substr(matchIdx,value.length+offset)+'<b>'+titleOri.substr(matchIdx+value.length+offset)+'</b>';
+            
+            if (matchIdx === 0) {
+                data.push({index:SELF.haystack[i].index,ori:titleOri.replace(/'/g,'!!!'),title:title,link:link});
+                match++;
+            } else {
+                extraMatch.push({index:SELF.haystack[i].index,ori:titleOri.replace(/'/g,'!!!'),title:title,link:link});
+                xmatch++;
+            }
+          }
+        }
+        if (match < 10) {
+          for (var i=0; i<xmatch-1 && match<10; i++) {
+            data.push(extraMatch[i]);
+            match++;
+          }
+        }
+        return data;
+      },
+      selectHints: function() {
+        let hints = $('.search-hints');
+        if (hints.length === 0)
+            return
+        switch(event.keyCode) {
+          case 27: // escape
+            document.activeElement.blur();
+            break;
+          case 13: // enter
+            if (this.find.idx > -1) {
+              event.preventDefault();
+              hints[this.find.idx].click();
+            }
+          break;
+          case 38: // up
+            event.preventDefault();
+            this.find.idx--;
+            if (this.find.idx == -2) {
+              this.find.idx = hints.length-1;
+              hints[this.find.idx].classList.toggle('selected');
+            } else {
+              hints[this.find.idx+1].classList.toggle('selected');
+              if (this.find.idx > -1 && this.find.idx < hints.length)
+                hints[this.find.idx].classList.toggle('selected');
+            }
+            return;
+          break;
+          case 40: // down
+            this.find.idx++;
+            if (this.find.idx == hints.length) {
+              this.find.idx = -1;
+              hints[hints.length-1].classList.toggle('selected');
+            } else {
+              hints[this.find.idx].classList.toggle('selected');
+              if (this.find.idx > 0 && this.find.idx < hints.length)
+                hints[this.find.idx-1].classList.toggle('selected');
+            }
+            return;
+          break;
+        }
+      },
+      highlightHints: function() {
+        let idx = Number(this.dataset.searchIndex);
+        var hints = $('.search-hints');
+        for (var i=0; i<hints.length; i++) {
+          if (i == idx)
+            hints[i].classList.toggle('selected',true);
+          else
+            hints[i].classList.toggle('selected',false);
+        }
+        wgSearch.find.idx = idx;
+      },
+      displayResult: function(data) {
+        config.resultEl.innerHTML = '';
+        let i = 0;
+        let fragmend = document.createDocumentFragment();
+        for (let hint of data) {
+          let tmp = config.resultTemplate.content.cloneNode(true);
+          $('.title', tmp)[0].innerHTML = hint.title;
+          $('.title', tmp)[0].href = hint.link;
+          fragmend.appendChild(tmp);
+          i++;
+        }
+        config.resultEl.appendChild(fragmend);
+      },
+      find: function(v) {
+        clearTimeout(this.wait);
+        this.v = v;
+        
+        if (this.v.trim().length < 2) {
+          config.resultEl.innerHTML = '';
+          return;
+        }
+        
+        var data = wgSearch.match(this.v.toLowerCase());
+        
+        if (this.keywords.indexOf(v) < 0) {
+          this.displayResult(data);
+          this.keywords.push(v)
+        }
+        else if (data.length >= 0)
+          this.displayResult(data);
+        
+      }
+    };
+    
+    return SELF;
+  }
+  
+  window.BlogSearch = BlogSearch;
+  
+})(); /*]]>*/</script></b:includable>
+    
+    <!--MODULES-->
+    <b:includable id='@modules/analytics'><script async src="https://www.googletagmanager.com/gtag/js?id=UA-44625482-2"></script>
+<script>
+  if (!document.cookie.includes('_ns=2')) {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-44625482-2');
+  } else {
+    noTrackViews();
+  }
+</script></b:includable>
+    <b:includable id='@modules/yt-iframe'><style>
+  table[data-type="yt-iframe-v1"] tr:nth-child(2) {
+      display: none;
+  }
+  table[data-type="yt-iframe-v1"] tr:nth-child(1) td:nth-child(1) {
+      display: none;
+  }
+  table[data-type="yt-iframe-v1"] tr:nth-child(1) td:nth-child(2) {
+      overflow: hidden;
+      display: block;
+      border: 0;
+      padding-top: 56.25%;
+      position: relative;
+  }
+  
+  table[data-type="yt-iframe-v1"] tr:nth-child(1){
+      display:block!Important;
+      text-align:center;
+      max-height:none!Important;
+  }
+  table[data-type="yt-iframe-v1"] {
+      border: none;
+  }
+  table[data-type="yt-iframe-v1"] iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width:100%;
+      border: 0;
+  }
+</style>
+<style>
+  .hidden{display:none}
+  .yt-icon svg {
+    width: 70px;
+  }
+  .yt-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: grid;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    filter: grayscale(1);
+    cursor: pointer;
+  }
+  .yt-icon:hover {
+    filter: grayscale(0);
+  }
+  .yt-info {
+    text-align: center;
+    padding: 16px 0;
+    font-weight: bold;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    color: #fff;
+    opacity: 0.7;
+  }
+	.yt-info:before {
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+  .yt-thumbnail {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+  }
+  .mini-gradient {
+    height:100%;
+    top: 0;
+    width: 100%;
+    position: absolute;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAADGCAYAAAAT+OqFAAAAdklEQVQoz42QQQ7AIAgEF/T/D+kbq/RWAlnQyyazA4aoAB4FsBSA/bFjuF1EOL7VbrIrBuusmrt4ZZORfb6ehbWdnRHEIiITaEUKa5EJqUakRSaEYBJSCY2dEstQY7AuxahwXFrvZmWl2rh4JZ07z9dLtesfNj5q0FU3A5ObbwAAAABJRU5ErkJggg==');
+    background-repeat: repeat-x;
+    background-size:contain;
+    -moz-transition: opacity .25s cubic-bezier(0.0,0.0,0.2,1);
+    -webkit-transition: opacity .25s cubic-bezier(0.0,0.0,0.2,1);
+    transition: opacity .25s cubic-bezier(0.0,0.0,0.2,1);
+    pointer-events: none;
+  }
+</style>
+<script>
+  function loadYoutubePlayer(self) {
+    let iframe = o.cel('iframe',{
+      src: 'https://www.youtube.com/embed/'+self.dataset.video,
+      style: 'position:absolute;top:0;left:0;width:100%;height:100%;',
+      frameborder: 0,
+      allowfullscreen: 'allowfullscreen',
+      mozallowfullscreen: 'mozallowfullscreen',
+      msallowfullscreen: 'msallowfullscreen',
+      oallowfullscreen: 'oallowfullscreen',
+      webkitallowfullscreen: 'webkitallowfullscreen'
+    });
+    self.innerHTML = '';
+    self.appendChild(iframe);
+  }
+</script>
+<script>
+//<![CDATA[
+(function() {
+  let $ = (selector, node = document) => node.querySelectorAll(selector);
+  let version = Math.floor(1);
+  let templateId = `yt-iframe-v${version}`;
+  class CustomElement extends HTMLElement {
+    constructor() {
+      super();
+      this.rootTable = this.findRootTableNode();
+    }
+    
+    connectedCallback() {
+      this.init();
+    }
+    
+    init() {
+      let table = this.rootTable;
+      let iframe = $('iframe', table)[0];
+      let thumbnail = $('img', table)[0];
+      this.iframeSrc = iframe.src;
+      let fragment = document.createDocumentFragment();
+      let div = document.createElement('div');
+      div.innerHTML = `
+  <div class="_wrapper">
+    <div class="yt-thumbnail" style="background-attachment: initial; background-clip: initial; background-color: initial; background-origin: initial; background-position: 50% 50%; background-repeat: initial; background-size: cover; background: url('${thumbnail.src}') center center / cover;"></div>
+    <div class="mini-gradient"></div>
+    <div class="yt-icon">
+      <svg version="1.1" viewbox="0 0 68 48" width="45"><path class="ytp-large-play-button-bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill-opacity="0.8" fill="red"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+    </div>
+    <div class="yt-info"></div>
+  </div>`
+      fragment.append(div);
+      iframe.parentNode.append(fragment);
+      iframe.remove();
+      let wrapper = $('._wrapper',table)[0];
+      this.wrapper = wrapper;
+      wrapper.addEventListener('click', () => {
+        this.loadPlayer();
+      })
+    }
+    
+    loadPlayer() {
+      let iframe = document.createElement('iframe');
+      let attributes = {
+        src: this.iframeSrc,
+        allowfullscreen: 'allowfullscreen',
+        mozallowfullscreen: 'mozallowfullscreen',
+        msallowfullscreen: 'msallowfullscreen',
+        oallowfullscreen: 'oallowfullscreen',
+        webkitallowfullscreen: 'webkitallowfullscreen'
+      };
+      for (let name in attributes) {
+        iframe.setAttribute(name, attributes[name]);
+      }
+      this.wrapper.innerHTML = '';
+      this.wrapper.appendChild(iframe);
+    }
+    
+    findRootTableNode() {
+      let node = this;
+      let retry = 5;
+      while (node.parentNode && retry > 0) {
+        if (node.dataset.type == `yt-iframe-v${version}`) {
+          return node;
+        }
+        node = node.parentNode;
+        retry--;
+      }
+      return null;
+    }
+    
+  }
+  window.requestAnimationFrame(() => {
+    customElements.define(templateId, CustomElement);
+  })
+})();
+//]]>
+</script></b:includable>
+    <b:includable id='@modules/codeblock'><style>
+  table[data-type="code"] {
+    display:grid;
+    overflow:auto;
+    border:0;
+    border-color:transparent;
+    background: #1c2123;
+    color: white;
+    font-size: 1rem;
+    border-radius: 6px;
+    line-height: 1.4rem;
+  }
+  pre code.hljs {
+    color: white;
+    background: #1c2123;
+    padding: 0;
+  }
+  
+  table[data-type="code"] pre { margin: 0.3rem 0.6rem; }
+  table[data-type="code"] th { display:none; }
+  table[data-type="code"] tbody { display: grid; }
+  table[data-type="code"] tbody, table[data-type="code"] tr, table[data-type="code"] td { overflow: inherit!important;border:0; }
+  table[data-type="code"] tr:last-child { min-height: 40px; position: relative; }
+  table[data-type="code"] tr:nth-child(3) { display: none; }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css" rel="stylesheet" />
+<script>
+//<![CDATA[
+  (function(w, d) {
+    'use strict';
+  
+    let _containerEl = d;
+    if(w.hljs) {
+        w.hljs.highlightLinesAll = highlightLinesAll;
+        w.hljs.highlightLinesElement = highlightLinesElement;
+  
+        /* deprecated */
+        w.hljs.initHighlightLinesOnLoad = initHighlightLinesOnLoadWithDeprecated;
+        w.hljs.highlightLinesCode = highlightLinesCodeWithDeprecated;
+    }
+  
+    function highlightLinesAll(options, containerEl) {
+        for(var i = 0; i < options.length; ++i) {
+            for(var option of options[i]) {
+                --option.start;
+                --option.end;
+            }
+        }
+        if (containerEl) {
+          _containerEl = containerEl;
+        }
+        initHighlightLinesOnLoad(options);
+    }
+  
+    var initHighlightLinesOnLoadWithDeprecatedCalled = false;
+    function initHighlightLinesOnLoadWithDeprecated(options) {
+        if(!initHighlightLinesOnLoadWithDeprecatedCalled) {
+            console.log('hljs.initHighlightLinesOnLoad is deprecated. Please use hljs.highlightLinesAll')
+            initHighlightLinesOnLoadWithDeprecatedCalled = true;
+        }
+        initHighlightLinesOnLoad(options)
+    }
+  
+    function initHighlightLinesOnLoad(options) {
+        function callHighlightLinesCode() {
+            var codes = _containerEl.getElementsByClassName('hljs');
+            for(var i = 0; i < codes.length; ++i) {
+                highlightLinesCode(codes[i], options[i]);
+            }
+        }
+  
+        if(d.readyState !== 'loading') {
+            callHighlightLinesCode();
+        }
+        else {
+            w.addEventListener('DOMContentLoaded', function() {
+                callHighlightLinesCode();
+            });
+        }
+    }
+  
+    function highlightLinesElement(code, options, has_numbers) {
+        for(var option of options) {
+            --option.start;
+            --option.end;
+        }
+        highlightLinesCode(code, options, has_numbers);
+    }
+  
+    var highlightLinesCodeWithDeprecatedCalled = false;
+    function highlightLinesCodeWithDeprecated(code, options, has_numbers) {
+        if(!highlightLinesCodeWithDeprecatedCalled) {
+            console.log('hljs.highlightLinesCode is deprecated. Please use hljs.highlightLinesElement')
+            highlightLinesCodeWithDeprecatedCalled = true;
+        }
+        highlightLinesCode(code, options, has_numbers)
+    }
+  
+    function highlightLinesCode(code, options, has_numbers) {
+        function highlightLinesCodeWithoutNumbers() {
+            code.innerHTML = code.innerHTML.replace(/([ \S]*\n|[ \S]*$)/gm, function(match) {
+                    return '<div class="highlight-line">' + match + '</div>';
+                    });
+  
+            if(options === undefined) {
+                return;
+            }
+            var lines = code.getElementsByClassName('highlight-line');
+            for(var option of options) {
+                for(var j = option.start; j <= option.end; ++j) {
+                    lines[j].classList.add(option.group)
+                }
+            }
+        }
+        function highlightLinesCodeWithNumbers() {
+            var tables = code.getElementsByTagName('table');
+            if(tables.length == 0) {
+                if(count-- < 0) {
+                    clearInterval(interval_id);
+                    highlightLinesCodeWithoutNumbers();
+                }
+                return;
+            }
+  
+            clearInterval(interval_id);
+  
+            var table = tables[0];
+            table.style.width = '100%';
+            var hljs_ln_numbers = table.getElementsByClassName('hljs-ln-numbers');
+            for(var hljs_ln_number of hljs_ln_numbers) {
+                hljs_ln_number.style.width = '2em';
+            }
+  
+            if(options === undefined) {
+                return;
+            }
+            var lines = code.getElementsByTagName('tr');
+            for(var option of options) {
+                for(var j = option.start; j <= option.end; ++j) {
+                    lines[j].style.backgroundColor = option.color;
+                }
+            }
+        }
+  
+        if(hljs.hasOwnProperty('initLineNumbersOnLoad') && has_numbers !== false) {
+            var count = 100;
+            var interval_id = setInterval(highlightLinesCodeWithNumbers, 100);
+            return;
+        }
+  
+        highlightLinesCodeWithoutNumbers();
+    }
+  
+  }(window, document));
+//]]>
+</script>
+<style>
+  /*hljs overwrite*/
+  /*--------------*/
+  /*html*/
+  .hljs-deletion, .hljs-number, .hljs-quote, .hljs-selector-class, .hljs-selector-id, .hljs-string, .hljs-template-tag, .hljs-type { color: #e0d88e }
+  .hljs-tag .hljs-attr, .hljs-tag .hljs-name { color: #ce5061 }
+  .hljs-tag .hljs-attr { color: #69c36d }
+  .hljs-punctuation, .hljs-tag { color: #f9f9f9aa }
+  /*javascript*/
+  .hljs-section, .hljs-title { color: #4caf50 }
+  .hljs-keyword, .hljs-literal, .hljs-selector-tag { color: #319cf1 }
+</style>
+
+<style>
+  .ext-paco-block{
+    display: flex;
+    font-size: 0.9rem;
+    text-align: right;
+    justify-content: flex-end;
+    align-items:center;
+  }
+  .ext-paco-block .copy-icon {
+    background: url(https://1.bp.blogspot.com/-_wkP45GUv08/YYkAidTsrhI/AAAAAAAARAw/g1mzL45L1D4jmiJ99mIBaInLVa24GFSKACLcBGAsYHQ/s16/baseline_content_copy_black_24dp.png);
+    height: 16px;
+    width: 16px;
+  }
+  .ext-paco-block .copy-text{
+    display:none;
+    padding: 2px 8px;
+  }
+  .ext-paco-block .right {
+    display: flex;
+    gap: 8px;
+  }
+  .ext-paco-block button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 6px 8px;
+    background: #afafaf38;
+    border: none;
+    opacity: 0.5;
+    margin-left: 8px;
+  }
+  .ext-paco-block button:hover{
+    background: #e3e3e3;
+    opacity: 1;
+  }
+</style>
+<template name='ext-paco-block' data-id='copy'>
+  <div class='ext-paco-block'>
+  <div style="display:flex;">
+    <span class='copy-text'>Copied</span>
+  </div>
+  <div class='right'>
+  <button><span>Copy</span> <span class="copy-icon"></span></button></div></div>
+</template>
+<script>
+  /*<![CDATA[*/
+  (function() {
+    let $ = (selector, node = document) => node.querySelectorAll(selector);
+    let version = Math.floor(2.3);
+    let templateId = `paco-code-block-v${version}`;
+    class CustomElement extends HTMLElement {
+      constructor(e) {
+        super();
+        this.extensions = {};
+        this.options = '';
+      }
+      
+      connectedCallback() {
+        window.setTimeout(() => {
+          this.rootTable = this.findRootTableNode();
+          this.detectExtension();
+          this.hightlight();
+          if (!this.options.includes('no-copy'))
+            this.initExtensions();
+        });
+      }
+      
+      detectExtension() {
+        let extensions = $('template[name="ext-paco-block"]');
+        for (let ext of extensions) {
+          this.extensions[ext.dataset.id] = ext.content.cloneNode(true);
+        }
+      }
+      
+      hightlight() {
+        let pre = $('pre', this)[0];
+        let language = this.getLanguage();
+        pre.innerHTML = '<code class="language-'+language+'">'+pre.innerHTML+'</code>';
+        hljs.highlightElement(pre.firstElementChild)
+        this.highlightLines();
+      }
+      
+      highlightLines() {
+        let highlightSettings = $('tr td', this.rootTable)[1];
+        if (highlightSettings) {
+          let options = [];
+          let lines = highlightSettings.innerHTML.trim().replace(/ +/g,'').replace(/\n+/g,'\n').split('\n');
+          for (let line of lines) {
+            let group = line.split(':')[0];
+            let lineSeries = line.split(':')[1].split(',');
+            for (let series of lineSeries) {
+              let start = window.parseInt(series);
+              let end = start;
+              if (series.includes('-')) {
+                end = window.parseInt(series.split('-')[1]);
+              }
+              options.push({start, end, group})
+            }
+          }
+          
+          hljs.highlightLinesAll([
+            options,
+          ], this);
+        }
+      }
+      
+      initExtensions() {
+        for (let key in this.extensions) {
+          switch (key) {
+            case 'copy':
+              this.initControl(this.extensions[key]);
+              break;
+          }
+        }
+      }
+      
+      initControl(extNode) {
+        if (this.rootTable) {
+          this.notifNode = $('span', extNode)[0];
+          $('button', extNode)[0].addEventListener('click', this.copySnippetCode.bind(this));
+          
+          this.rootTable.parentNode.insertBefore(extNode, this.rootTable);
+        }
+      }
+                
+      getLanguage() {
+        let language = 'plaintext'
+        if (this.rootTable) {
+          let node = $('th', this.rootTable)[0];
+          let definedLanguage = node.textContent.trim().split('|');
+          let myLan = definedLanguage[0].trim();
+          if (myLan.length > 0)
+            language = myLan;
+          ;
+          if (definedLanguage[1]) {
+            let opt = definedLanguage[1].trim();
+            this.options = opt;
+          }
+        }
+        return language;
+      }
+      
+      findRootTableNode() {
+        let node = this;
+        let retry = 5;
+        while (node.parentNode && retry > 0) {
+          if (node.dataset.type == 'code') {
+            let style = node.getAttribute('style');
+            if (style) {
+              style = style.replace('%px', '%').replace(/color:.*?;/, '')
+              node.setAttribute('style', style); 
+            }
+            return node;
+            break;
+          }
+          node = node.parentNode;
+          retry--;
+        }
+        return null;
+      }
+      
+      copySnippetCode() {
+        let node  = document.createElement('textarea');
+        node.value = this.textContent;
+        document.body.append(node);
+        node.select();
+        node.setSelectionRange(0, node.value.length);
+        document.execCommand("copy");
+        node.remove();
+        this.showCopyNotif();
+      }
+      
+      showCopyNotif() {
+        this.notifNode.style.display = 'block';
+        window.clearTimeout(this.copyTimeout);
+        this.copyTimeout = window.setTimeout(this.hideCopyNotif.bind(this), 1000);
+      }
+      
+      hideCopyNotif() {
+        let node = this.extensions['code'];
+        this.notifNode.style.display = 'none';
+      }
+      
+    }
+    customElements.define(templateId, CustomElement);
+  })();
+  /*]]>*/
+</script></b:includable>
+    <b:includable id='@modules/awake-toggler'><script>
+  (function initUI() {
+    
+    if ('wakeLock' in navigator) {
+      
+      $('#awake-toggler')[0].style.display = 'block';
+      $('#in-toggle-awake')[0].addEventListener('change', toggleAwake);
+      
+      let isAwake = false;
+      let wakeLock = null;
+      
+      function toggleAwake() {
+        if (isAwake) {
+          wakeLock.release();
+          wakeLock = null;
+        } else {
+          requestWakeLock();
+        }
+        isAwake = !isAwake;
+      }
+      
+      const requestWakeLock = async () => {
+        try {
+          wakeLock = await navigator.wakeLock.request();
+          wakeLock.addEventListener('release', () => {
+            console.log('Screen Wake Lock released:', wakeLock.released);
+          });
+          console.log('Screen Wake Lock released:', wakeLock.released);
+        } catch (err) {
+          console.error(`${err.name}, ${err.message}`);
+        }
+      };
+
+    }
+  })();
+</script></b:includable>
+    <b:includable id='@modules/chordy'><style>
+.chord-modal {
+    background: #181818;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 16px;
+  }
+  
+  .chord-modal:not(.show) {
+    height: 0;
+    overflow: hidden;
+  }
+  
+  .chords {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+.chord-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 16px;
+}
+
+	.chord-modal.show {
+    background: #181818;
+  }
+  .icon-close {
+    height: 24px;
+    width: 24px;
+    font-size: 2rem;
+    line-height: 1.5rem;
+  }
+</style>
+<style>
+  .INTRO, .OUTRO, .INTERLUDE{ 
+    color: #fff;
+    background: #000;
+    padding: 2px 6px 0 4px;
+  }
+  .VERSE,.PRE-CHORUS{color:#3f51b5}
+  .CHORUS{color:#e91e63}
+  .CODA{color:#e91e63}
+  .ENDING{color:#e91e63}
+  .BRIDGE{color:#9c27b0}
+</style>
+<style name='chordy-font-size'>
+  #chordy-char.mode2, .chordy-container.mode1 {font-size:16px;font-family:monospace;}
+  #chordy-char.mode1, .chordy-container.mode2 {font-size:17px;font-family:Telex, sans-serif;}
+  @media (max-width:480px) {
+    #chordy-char.mode2, .chordy-container.mode1 {font-size:15px;font-family:monospace;}
+    #chordy-char.mode1, .chordy-container.mode2 {font-size:16px;font-family:Telex, sans-serif;}
+  }
+</style>
+<template name='chordy-font-style'>
+  <style>
+    #chordy-char.mode2, .chordy-container.mode1 {font-size:__size1__px;font-family:monospace;}
+    #chordy-char.mode1, .chordy-container.mode2 {font-size:__size2__px;font-family:Telex, sans-serif;}
+  </style>
+</template>
+
+<script src='https://pacolemon.web.app/blog-scripts/chordy.min.js'></script>
+<script>
+  chordy.init($('.post-body pre')[0]);
+  if (localStorage.getItem('config-chordy-view') == null)
+    localStorage.setItem('config-chordy-view', 0);
+  
+  chordy.toggleLyric($('.post-body pre')[0], Number(localStorage.getItem('config-chordy-view')));
+  $('.post-body pre')[0].classList.toggle('show');
+  
+  $('#select-key')[0].value = $('.post-body pre')[0].data.transposer._baseKey;
+  $('#select-key')[0].options[$('.post-body pre')[0].data.transposer._baseKey].textContent += '**';
+  chordy.updateTransposer($('.post-body pre')[0]);
+</script>
+<script src='https://pacolemon.web.app/blog-scripts/fretchart.min.js'></script>
+<script>
+  //<![CDATA[
+  let guitar = new FretChart()
+  guitar.scale = 1.5
+  guitar.setPalette({"fretboard":"#201e1e","fretMarker":"#c4c2c2","finger":"#ffffff","open":"#ffffff","nut":"#baae8f","special1":"#1e90ff","special2":"#ee82ee","fretNum":"#ffffff","fret":"#9f9d9d","fretShadow":"#564b4b","string":"#be907a","stringShadow":"#232020","string12":"#c0c0c0","string12Shadow":"#000","name":"#ffffff","circle":"#2ba633","circleText":"#ffffff"});
+  
+  function closeChord() {
+    $('.chord-modal')[0].classList.remove('show');
+    document.body.classList.remove('show-chord');
+  }
+  
+  function openChord() {
+    $('.chord-modal')[0].classList.add('show');
+    document.body.classList.add('show-chord');
+    $('.chords')[0].innerHTML = '';
+    loadChords();
+  }
+  
+  function loadChords() {
+    let chords = [];
+    for (let chordName of chordy._chordBase) {
+      if (chordName.charAt(0) == '(')
+        continue;
+      for (let c of availableChord) {
+        if (c[0] == chordName) {
+          chords.push(c);
+        }
+      }
+    }
+    chords.sort((a,b)=>a[0] < b[0] ? -1 : 1);
+    for (let c of chords) {
+      $('.chords')[0].append(guitar.formula({
+        name: c[0],
+        fret: c[1],
+        finger: c[2],
+      }))
+    }
+  }
+  //]]>
+</script>
+<script>
+  fetch('https://tmpmachine.github.io/public/guitar-chord-chart.json')
+  .then(r=>r.json())
+  .then(data => {
+    window.availableChord = data;
+  });
+  
+  L('v2')
+</script></b:includable>
+    <b:includable id='@modules/song-controls'><div style="padding-bottom:1em;display:grid;grid-template-columns:1fr auto;justify-content:space-between;">
+  <div style="display:flex;align-items:center;gap:8px;">
+	  <label style="margin:0;">Key :</label>
+	  <select id="select-key" class="custom-select" onchange="chordy.transposer.transpose(Number(this.value), $('.post-body pre')[0])" style="max-width:68px;">
+	    <option value="0">C</option>
+	    <option value="1">C#</option>
+	    <option value="2">D</option>
+	    <option value="3">Eb</option>
+	    <option value="4">E</option>
+	    <option value="5">F</option>
+	    <option value="6">F#</option>
+	    <option value="7">G</option>
+	    <option value="8">G#</option>
+	    <option value="9">A</option>
+	    <option value="10">Bb</option>
+	    <option value="11">B</option>
+	  </select>
+  </div>
+  <div>
+    <button class="pick-btn feedback-btn" onclick="openChord()">Guitar Chord<span class="custom-icon icon-help" style="width:24px;height:24px;"></span></button>
+  </div>
+</div>
+
+<div class="tool" style="margin-bottom:2rem;">
+  <div>
+    <label class="custom-control-label label-check" style="cursor:pointer;">
+      <input id="in-tampilan" class="custom-control-input" type="checkbox"/> 
+      <label for="in-tampilan">Show Lyric only</label>
+    </label>
+  </div>
+  <div id="awake-toggler" style="display:none;">
+    <input id="in-toggle-awake" type="checkbox"/>
+    <label for="in-toggle-awake">Keep screen awake</label>
+  </div>
+</div>
+
+<div class="chord-modal">
+  <div class="chord-header">
+    <div>
+      <button onclick="closeChord()" style="cursor:pointer;border:0;display:flex;justify-content:center;align-items:center;padding:0.4rem;border-radius:50%"><span class="icon-close">×</span></button>
+    </div>
+  </div>
+  <div><div class="chords"></div></div>
+</div>
+
+<script>
+  $('#in-tampilan')[0].checked = Boolean(Number(localStorage.getItem('config-chordy-view')));
+  
+  function gantiTampilan() {
+    chordy.toggleLyric($('.post-body pre')[0], Number(this.checked));
+    localStorage.setItem('config-chordy-view', Number(this.checked));
+  }
+  
+  function changeFontSize(value) {
+    let template = document.querySelectorAll('template[name="chordy-font-style"]')[0].content.cloneNode(true);
+    let style = template.querySelectorAll('style')[0].innerHTML;
+    if (value == 'small')
+      style = style.replace('__size1__', '13').replace('__size2__', '14');
+    else if (value == 'medium')
+      style = style.replace('__size1__', '14').replace('__size2__', '15');
+    else if (value == 'large')
+      style = style.replace('__size1__', '15.5').replace('__size2__', '16.5');
+    document.querySelectorAll('style[name="chordy-font-size"]')[0].innerHTML = style;
+    chordy.resizeWrapper();
+    
+    document.querySelectorAll('#sel-font-size')[0].selectedIndex = ['small','medium','large'].indexOf(value);
+  }
+  
+  $('#in-tampilan')[0].addEventListener('change', gantiTampilan);
+</script></b:includable>
+    <b:includable id='@modules/fretchart'><script src='https://pacolemon.web.app/blog-scripts/fretchart.min.js'></script>
+<style>
+table[data-type="fretchart-v2"]{
+    overflow:auto;
+    border:0;
+    border-color:transparent;
+    background: hsl(197deg 8% 4%);
+    color: white;
+    font-size: 1rem;
+    border-radius: 0 0 6px 6px;
+    padding: 4px;
+ }
+.fretchart-v2-tabs {
+    overflow: auto;
+    background: black;
+    color: white;
+    border-radius: 6px 6px 0 0;
+ }
+.fretchart-v2-tabs button {
+    padding: 10px 14px;
+    margin: 8px;
+    cursor: pointer;
+    background: #6f6f6f;
+    color: inherit;
+    border: 0;
+    border-radius: 4px;
+ }
+.fretchart-v2-tabs button.active {
+    background: #ba0643;
+}
+ table[data-type="fretchart-v2"] tr:nth-child(1){
+    max-height:none!important;
+ }
+ table[data-type="fretchart-v2"] tr:nth-child(2){
+     display:none!important;
+ }
+</style>
+<script>
+//<![CDATA[
+(function() {
+  let $ = (selector, node = document) => node.querySelectorAll(selector);
+  let version = Math.floor(2);
+  let templateId = `fretchart-v${version}`;
+  class CustomElement extends HTMLElement {
+    constructor() {
+      super();
+      this.rootTable = this.findRootTableNode();
+    }
+    
+    connectedCallback() {
+      this.hightlight();
+    }
+    
+    hightlight() {
+      let pre = $('pre', this)[0];
+      
+       let guitar = new FretChart();
+       guitar.scale = 1.3;
+       guitar.setPalette({"fretboard":"#201e1e","fretMarker":"#c4c2c2","finger":"#ffffff","open":"#ffffff","nut":"#baae8f","special1":"#1e90ff","special2":"#ee82ee","fretNum":"#ffffff","fret":"#9f9d9d","fretShadow":"#564b4b","string":"#be907a","stringShadow":"#232020","string12":"#c0c0c0","string12Shadow":"#000","name":"#ffffff","circle":"#2ba633","circleText":"#ffffff"});
+       
+       let selfNode = this;
+       let table = this.rootTable;
+       let data = JSON.parse(pre.textContent); 
+       
+          let partNode = document.createDocumentFragment();
+       let i = 0;
+       for (let part of data) {
+        let opt = document.createElement('button');
+        opt.innerHTML = part.name;
+        if (i === 0)
+          opt.classList.toggle('active', true);
+        opt.dataset.value = i;
+        // opt.value = i;
+        opt.addEventListener('click', changePart)
+        i++;
+        partNode.appendChild(opt)
+      }
+      let tabsNode = document.createElement('div');
+      tabsNode.classList.add(templateId+'-tabs');
+      table.parentNode.insertBefore(tabsNode, table);
+      tabsNode.innerHTML = '';
+      tabsNode.append(partNode)
+      
+       function changePart() {
+        let index = this.dataset.value;
+        for (let part of $('button', tabsNode)) {
+          part.classList.toggle('active', false);
+        }
+        this.classList.toggle('active', true);
+        
+        listChart(index);
+      }
+       
+        function listChart(partIndex) {
+          let chartList = document.createDocumentFragment();
+          for (let c of data[partIndex].chart) {
+            chartList.append(guitar.formula({fret:c.fret,finger:c.finger,name:c.name}))
+          }
+          
+          selfNode.innerHTML = '';
+          selfNode.append(chartList);
+        }
+      
+        listChart(0);
+      
+    }
+    
+    findRootTableNode() {
+      let node = this;
+      let retry = 5;
+      while (node.parentNode && retry > 0) {
+        if (node.dataset.type == templateId) {
+          return node;
+        }
+        node = node.parentNode;
+        retry--;
+      }
+      return null;
+    }
+    
+  }
+  window.requestAnimationFrame(() => {
+    customElements.define(templateId, CustomElement);
+  })
+})();
+//]]>
+</script></b:includable>
+    <b:includable id='@modules/guitar-tab'><style>
+table[data-type="guitar-tab"]{
+    overflow:auto;
+    border:0;
+    border-color:transparent;
+    background: hsl(197deg 11% 11%);
+    color: white;
+    font-size: 1rem;
+    border-radius: 6px;
+    padding: 4px;
+ }
+  table[data-type="guitar-tab"] tr:nth-child(1){display: grid;font-size: 0.9rem;line-height: 1rem;}
+ table[data-type="guitar-tab"] tr:nth-child(2){
+    display: none;
+ }
+</style></b:includable>
+    <b:includable id='@modules/live-html'><style>
+  table[data-type="live-html"]{
+    display:grid;
+    overflow:auto;
+    border: 1px solid black;
+  }
+  table[data-type="live-html"] th{
+    width: 100%;
+    border: 0;
+    padding: 0 0.5rem;
+    background: dodgerblue;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: normal;
+  }
+  table[data-type="live-html"] tr:nth-child(1) {
+    display: grid;
+  }
+  table[data-type="live-html"] tr:nth-child(2) > * {
+    display: grid;
+  }
+</style>
+<script >
+/*<![CDATA[*/
+  (function() {
+    let $ = (selector, node = document) => node.querySelectorAll(selector);
+    let version = Math.floor(1);
+    let templateId = `paco-live-html-v${version}`;
+    class CustomElement extends HTMLElement {
+      constructor() {
+        super();
+        let fragment = document.createDocumentFragment();
+        this.style.display = 'block';
+        this.attachShadow({mode: 'open'}).append(fragment);
+      }
+      
+      connectedCallback() {
+        let pre = $('pre', this)[0];
+        let node = document.createElement('iframe');
+        node.setAttribute('style', 'border:0;width:100%;height:100%')
+        node.src = URL.createObjectURL(new Blob([this.decodeHtml(pre.innerHTML)], {type: 'text/html'}));
+        this.shadowRoot.append(node)
+      }
+      
+      decodeHtml(html) {
+        var txt = document.createElement("textarea");
+        txt.innerHTML = html;
+        return txt.value;
+      }
+      
+    }
+    customElements.define(templateId, CustomElement);
+  })();
+/*]]>*/
+</script></b:includable>
+    <b:includable id='@modules/dark-theme'><script>
+//<![CDATA[ 
+  window.darkTheme = (function() {
+    
+    let isDarkTheme = (window.localStorage.getItem('dark-theme') == 'true');
+    if (window.localStorage.getItem('dark-theme') == null && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      isDarkTheme = true;
+    }
+    
+    let toggler = null;
+    let htmlNode = document.getElementsByTagName('html')[0];
+    
+    function toggle() {
+      isDarkTheme = !isDarkTheme;
+      window.localStorage.setItem('dark-theme', isDarkTheme);
+      htmlNode.classList.toggle('--dark', isDarkTheme);
+    }
+    
+    function initToggler() {
+      toggler = document.getElementById('dark-theme-toggler');
+      if (isDarkTheme) {
+        toggler.checked = true;
+      }
+      toggler.addEventListener('change', toggle);
+    }
+    
+    htmlNode.classList.toggle('--dark', isDarkTheme);
+    
+    return {
+      toggle,
+      initToggler,
+    };
+  })();
+//]]>
+</script>
+
+<style>
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 26px;
+  }
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+  }
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+  }
+  .--dark #dark-theme-toggler + .slider, 
+  #dark-theme-toggler:checked + .slider,
+  #awake-toggler:checked + .slider {
+    background-color: #2196F3;
+  }
+  #dark-theme-toggler:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  .--dark #dark-theme-toggler + .slider:before, 
+  #dark-theme-toggler:checked + .slider:before,
+  #awake-toggler:checked + .slider:before {
+    -webkit-transform: translateX(33px);
+    -ms-transform: translateX(33px);
+    transform: translateX(33px);
+  }
+  .slider.round {
+    border-radius: 34px;
+  }
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  .switch.theme-switch .slider{
+    border: none;
+    display: flex;
+    align-items: center;
+  }
+  .switch.theme-switch {
+    height: 26px;
+    margin: 0;
+  }
+  .switch.theme-switch .slider:before {
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 3px;
+  }
+  .--dark #dark-theme-toggler ~ .slider.round:after {
+    filter:invert(1);
+  }
+  #dark-theme-toggler ~ .slider.round:after {
+    content: '';
+    background-image: url("https://1.bp.blogspot.com/-IY8ivpLApRE/YYFScJZXHTI/AAAAAAAAQ3M/yGRjtjGlYGcoZuX_gFaVv6fWV5TLe5sfACLcBGAsYHQ/s0/dark.png");
+    right: 7px;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+  }
+  .--dark #dark-theme-toggler ~ .slider.round:after, #dark-theme-toggler:checked ~ .slider.round:after {
+    background-image: url("https://1.bp.blogspot.com/-OpJ1NtJ-8bk/YYFScNc6y4I/AAAAAAAAQ3Q/RaX1Qgh36gU5pL_XnnIE6VyUuzBPlWCngCLcBGAsYHQ/s0/light.png");
+    left: 7px;
+  }
+  #dark-theme-toggler + .slider {
+     background-color: #959595;
+    color: #1a1919;
+  }
+  .--dark .theme-switch input + .slider:before, 
+  .theme-switch input:checked + .slider:before {
+    -webkit-transform: translateX(32px);
+    -ms-transform: translateX(32px);
+    transform: translateX(32px);
+  }
+  .--dark #dark-theme-toggler + .slider, #dark-theme-toggler:checked + .slider {
+    background-color: #4a4646;
+    color: white;
+  }
+</style></b:includable>
+    <b:includable id='@modules/screen-awake'><script>
+//<![CDATA[ 
+  window.screenAwake = (function() {
+    
+    let toggler = null;
+    let wakeLock = null;
+    
+    const requestWakeLock = async () => {
+      try {
+        wakeLock = await navigator.wakeLock.request('screen');
+        wakeLock.addEventListener('release', () => {
+          isAwake = false;
+        });
+      } catch (err) {
+        // console.error(`${err.name}, ${err.message}`);
+      }
+    };
+     
+    async function wake() {
+      if (wakeLock === null) {
+        await requestWakeLock();
+      } else {
+        wakeLock.release();
+        wakeLock = null;
+      }
+      const handleVisibilityChange = () => {
+        if (wakeLock !== null && document.visibilityState === 'visible') {
+          requestWakeLock();
+        }
+      };
+      document.addEventListener('visibilitychange', handleVisibilityChange);
+    }
+    
+    function initToggler() {
+      if ('wakeLock' in navigator) {
+        toggler = document.getElementById('awake-toggler');
+        toggler.addEventListener('change', wake);
+      } else {
+        document.getElementById('feature-awake').style.display = 'none';
+      }
+    }
+    
+    return {
+      initToggler,
+    };
+  })();
+//]]>
+</script></b:includable>
+    
+  </b:defaultmarkup>
+</b:defaultmarkups>
+
+<b:defaultmarkups>
+  <b:defaultmarkup type='Common'>
+    
+    <b:includable id='markup-debug-mode-on'>
+      <script> window.localStorage.setItem('debugKey', '<data:global.debugKey/>'); </script>    
+    </b:includable>
+    <b:includable id='markup-debug-mode-off'>
+      <script> window.localStorage.removeItem('debugKey'); </script>    
+    </b:includable>
+    
+    <b:includable id='searchLabelPage.title-and-meta'>
+      <b:switch var='data:view.search.label.escaped'>
+        <b:case value='Blogger-RTE-Components'/>
+          <title>Blogger RTE Components</title>
+          <meta property="og:title" content='Blogger RTE Components'/>
+          <b:with var='description' value='"Blogger RTE (Rich Text Editor) components is an editable HTML elements, sometimes made of web components, that you can easily copy and use in your blog post with minimal to zero code implementation (no modification to blog template HTML code)."'>
+            <meta property="og:description" expr:content='data:description'/>
+            <meta name="description" expr:content='data:description'/>
+          </b:with>
+        <b:case value='series+BT02'/>
+          <title>Writing Blogger Template From Scratch with Codetmp</title>
+          <meta property="og:title" content='Writing Blogger Template From Scratch with Codetmp'/>
+          <meta property="og:description" content="Building custom Blogger template code in several files using Codetmp reserved tag."/>
+          <meta name="description" content="Building custom Blogger template code in several files using Codetmp reserved tag."/>
+        <b:default/>
+          <title><b:eval expr='"Label : " + data:view.search.label.escaped'/></title>
+      </b:switch>
+    </b:includable>
+        
+  </b:defaultmarkup>
+</b:defaultmarkups>
+
+<b:defaultmarkups>
+  <b:defaultmarkup type='Common'>
+      
+    <b:includable id='css'>
+      <b:switch var='data:path'>
+        <b:case value='index.css'/><style>/*<![CDATA[ /*]]>*/</style>
+        <b:case value='etc.css'/><style>/*<![CDATA[ /*]]>*/</style>
+      </b:switch>
+    </b:includable>
+    <b:includable id='js'>
+      <b:switch var='data:path'>
+        <b:case value='lib/homepage-post-loader.js'/><script>/*<![CDATA[ /**/
+function HomepagePostLoader(_options, _loadingCallback, _loadedCallback, _displayCallback) {
+  
+  let options = {
+    blogId: '',
+    itemsPerPage: 5,
+    excludedLabels: [],
+    start: 0,
+    isFirstLoad: true,
+  };
+  
+  for (let key in options) {
+    if (typeof(_options[key]) != 'undefined') {
+      options[key] = _options[key];
+    }
+  }
+  
+  let isFirstLoad = options.isFirstLoad;
+  let itemsPerPage = options.itemsPerPage;
+  let blogFeedsUrl = `https://www.blogger.com/feeds/${options.blogId}/posts/summary`;
+  let start = options.start;
+  let excludedLabels = options.excludedLabels;
+  let _inventory = [];
+  let _isNoMoreResult = false;
+  let _isLoading = false;
+  let _isLoadingMore = false;
+  let SELF = {};
+  
+  function loadingCallback() {
+    if (_loadingCallback)
+      _loadingCallback();
+  }
+  
+  function loadedCallback(isNoMoreResult) {
+    if (isNoMoreResult)
+      _isNoMoreResult = true;
+    if (_loadedCallback)
+      _loadedCallback(isNoMoreResult);
+  }
+  
+  SELF.loadMore = function() {
+    if (!_isLoadingMore) {
+      if (_isNoMoreResult || _isLoading) {
+        return;
+      }
+    }
+    _isLoadingMore = false;
+    loadingCallback();
+    let url = '';
+    let stored = false;
+    if (isFirstLoad) {
+      url = `${blogFeedsUrl}?alt=json&max-results=1&start-index=1`;
+      isFirstLoad = false;
+      stored = true;
+    } else {
+      url = `${blogFeedsUrl}?alt=json&max-results=1&start-index=${start+1}`;
+    }
+    _isLoading = true;
+    fetch(url).then(r=>r.json()).then(data=>{
+      if (data.feed.entry) {
+        if (stored) {
+          storeInventory(data.feed.entry[0])
+        }
+        let fetchDate = (new Date(data.feed.entry[0].published.$t)).toISOString();
+        loadNextPageItems(fetchDate);
+      } else {
+        _isLoading = false;
+        loadedCallback(true);
+      }
+    })
+  }
+  
+  function loadNextPageItems(fetchDate) {
+    let url = `${blogFeedsUrl}?alt=json&max-results=${itemsPerPage}&published-max=${fetchDate}`
+    fetch(url).then(r => r.json()).then(data => {
+      if (data.feed.entry) {
+        for (let entry of data.feed.entry) {
+          start++
+          storeInventory(entry);
+        }
+        if (_inventory.length >= itemsPerPage) {
+          emptyInventory();
+          _isLoading = false;
+          loadedCallback(false);
+        } else { 
+          _isLoadingMore = true;
+          SELF.loadMore();
+        }
+      } else {
+        emptyInventory();
+        loadedCallback(true);
+      }
+    });
+  }
+  
+  function storeInventory(entry) {
+    if (excludedLabels.length > 0) {
+      if (entry.category) {
+        let excluded = false;
+        for (let c of entry.category) {
+          if (excludedLabels.includes(c.term)) {
+            excluded = true;
+            break;
+          }
+        }
+        if (!excluded) {
+          _inventory.push(entry)
+        }
+      } else {
+        if (!excludedLabels.includes('')) {
+          _inventory.push(entry)
+        }
+      }
+    } else {
+      _inventory.push(entry)
+    }
+  }
+  
+  function emptyInventory() {
+    if (_inventory.length > 0) {
+      let counter = 0;
+      let entries = [];
+      while (_inventory.length > 0) {
+        entries.push(_inventory.shift())
+        counter++;
+        if (_inventory.length === 0 || counter == itemsPerPage)
+          break;
+      }
+      if (_displayCallback)
+        _displayCallback(entries);
+    }
+  }
+  
+  return SELF;
+};/*]]>*/</script>
+      </b:switch>
+    </b:includable>
+    
+    
+    
+  </b:defaultmarkup>
+</b:defaultmarkups>
+
+<b:defaultmarkups>
+  
+  <!---->
+  <!-- #markup Global -->
+  <b:defaultmarkup type="Common">
+      
+    <!-- footer -->
+    <b:includable id='js/related-posts.js'>
+      <script>/*<![CDATA[ /**/
+
+window.songLoader = function(label = 'Blogger') {
+  
+  let $ = function(selector, node=document) { return node.querySelectorAll(selector) };
+  
+  let isFirstLoad = true;
+  let currentItemCount = $('.my-posts').length;
+  let itemsPerPage = 7;
+  let blogURL = 'https://pacolemon.blogspot.com';
+  // let totalResults = 0;
+  // let pageUrlParam = window.location.href.match(/\?.*/);
+  let start = 0;
+  // if (pageUrlParam) {
+  //   let urlParams = new URLSearchParams(pageUrlParam[0]);
+  //   if (urlParams.get('start')) {
+  //     start = parseInt(urlParams.get('start'));
+  //   }
+  //   if (urlParams.get('max-results')) {
+  //     itemsPerPage = parseInt(urlParams.get('max-results'));
+  //   }
+  // }
+  let _btn = null;
+  
+  function getNextPageDate(btn, starter = 0) {
+    _btn = btn;
+    _btn.disabled = true;
+    _btn.textContent = 'Now loading, please wait ...';
+    let totalItem = itemsPerPage;
+    let startIndex = starter > 0 ? starter : start;
+    fetch(`${blogURL}/feeds/posts/summary/-/${label}?alt=json&max-results=1&start-index=${startIndex}`).then(r=>r.json()).then(data=>{
+      if (data.feed.entry) {
+        let fetchDate = (new Date(data.feed.entry[0].published.$t)).toISOString();
+        // L(fetchDate)
+        // L(data.feed.entry)
+        loadNextPageItems(fetchDate, starter, totalItem);
+      } else {
+        _btn.parentElement.innerHTML = '<small>No more posts to show.</small>';
+      }
+    })
+  }
+  
+  window.nextPage = getNextPageDate;
+  let loadBeforeShowAds = 1;
+  
+  function loadNextPageItems(fetchDate, starter, totalItem) {
+    let url = `${blogURL}/feeds/posts/summary/-/${label}?alt=json&max-results=${totalItem+1}&published-max=${fetchDate}`
+    fetch(url).then(r => r.json()).then(data => {
+      // L(data.feed.entry)
+      if (data.feed.entry) {
+        // L(data.feed.entry)
+        start += totalItem + starter;
+        let pageDate = data.feed.entry[0].published.$t.replace(/\.[0-9]*/,'').replace('+','%2B');
+        let pageURL = `${blogURL}/search/label/${label}?updated-max=${pageDate}&max-results=${totalItem}&start=${start}&by-date=false` 
+        // window.history.replaceState(null, '', pageURL);
+        
+        let fragment = document.createDocumentFragment();
+        let x = data.feed.entry.shift(); // remove first entry
+        
+        
+        
+        for (let entry of data.feed.entry) {
+          generateNode(entry, fragment)
+        }
+        
+        // dynamic ads
+        let isAppendAds = false;
+        loadBeforeShowAds--;
+        if (loadBeforeShowAds === 0) {
+          // generateAds(fragment);
+          isAppendAds = true;
+          loadBeforeShowAds = 2;
+        }
+        
+        $('#target-list')[0].append(fragment);
+        
+        try {
+          // if (isAppendAds) {
+          //   window.setTimeout(function() {
+          //     (adsbygoogle = window.adsbygoogle || []).push({});
+          //   }, 100);
+          // }
+        } catch(e) {}
+        
+        _btn.textContent = 'Load more posts';
+        _btn.disabled = false;
+      }
+    });
+  }
+  
+  function generateNode(entry, fragment) {
+    let node = $('template[data-name="tmp-list"]')[0].content.cloneNode(true);
+    for (let link of entry.link) {
+      if (link.rel == 'alternate')  {
+        $('a', node)[0].href = link.href;
+        break;
+      }
+    }
+    $('.title', node)[0].textContent = entry.title.$t;
+    // for (let label of entry.category) {
+    //   if (label.term.startsWith('key-'))  {
+    //     $('.note', node)[0].textContent = label.term;
+    //   } else if (label.term == 'Sweety Kids')  {
+    //     $('.labels', node)[0].innerHTML = '<span>'+label.term+'</span>';
+    //   }
+    // }
+    fragment.append(node);
+  }
+  
+  function generateAds(fragment) {
+    let node = $('template[name="in-feed-ads"]')[0].content.cloneNode(true);
+    fragment.append(node);
+  }
+  
+  if (currentItemCount < itemsPerPage) {
+    let tmp = itemsPerPage;
+    itemsPerPage = itemsPerPage - currentItemCount;
+    nextPage($('#loader-btn')[0], 1);
+    itemsPerPage = tmp;
+  }
+  
+}; /*]]>*/</script>
+    </b:includable>
+      
+  
+  </b:defaultmarkup>
+  <!-- #endmarkup Global -->
+  <!---->
+  
+  <!---->
+  <!-- #markup Ads unit -->
+  <b:defaultmarkup type="Common">
+    
+    <b:includable id='markup-ads-unit'>
+    </b:includable>
+    
+    
+    
+    <b:includable id='ads'>
+    </b:includable>
+    
+    <b:includable id='legacy-ads'>
+    </b:includable>
+    
+    <b:includable id='script-ads'>
+    </b:includable>
+    
+  </b:defaultmarkup>
+  <!-- #endmarkup Ads unit -->
+  <!---->
+  
+  
+  <!---->
+  <!-- #markup Ads unit -->
+  <b:defaultmarkup type="Common">
+    
+    <b:includable id='ads-v2'>
+    </b:includable>
+    <b:includable id='ads-v2-run-script'>
+    </b:includable>
+    
+    <b:includable id='@modules/blog-shortcut'>
+      <!--nodivless-->
+      <b:with var='links' value='[
+        {
+          path: "/admin",
+          target: ("https://blogger.com/blog/posts/" + data:blog.blogId),
+        }, {
+          path: "/stats",
+          target: ("https://blogger.com/blog/stats/week/" + data:blog.blogId),
+        }, {
+          path: "/layout",
+          target: ("https://blogger.com/blog/layout/" + data:blog.blogId),
+        }, {
+          path: "/xml",
+          target: ("https://blogger.com/blog/themes/edit/" + data:blog.blogId),
+        }]'>
+        
+        <b:loop var='link' values='data:links'>
+          <b:if cond='data:view.url.raw == (data:blog.homepageUrl.raw + data:link.path)'>
+            <a expr:href='data:link.target' id='th-link'/>
+            <script> document.querySelector('#th-link').click(); </script>
+          <b:elseif cond='data:blog.isMobile AND data:view.url.raw contains ("/" + data:link.path + "?m=1")'/>
+            <a expr:href='data:link.target' id='th-link'/>
+            <script> document.querySelector('#th-link').click(); </script>
+          </b:if>
+        </b:loop>
+        
+      </b:with>
+      <!--/nodivless-->
+    </b:includable>
+    
+    <b:includable id='@modules/redirects'>
+    </b:includable>
+    
+  </b:defaultmarkup>
+  <!-- #endmarkup Ads unit -->
+  <!---->
+  
+</b:defaultmarkups>
+  
+</body>
+</b:with>
+</html>
